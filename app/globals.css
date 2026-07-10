@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #16114b;
+
+  --ink: #16114b;
+  --indigo: #16114b;
+  --green: #2f8f3c;
+  --paper: #ffffff;
+
+  --indigo-soft: var(--indigo);
+  --green-deep: var(--green);
+  --mint: color-mix(in srgb, var(--green) 14%, white);
+  --parchment: color-mix(in srgb, var(--indigo) 5%, white);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink: var(--ink);
+  --color-indigo: var(--indigo);
+  --color-indigo-soft: var(--indigo-soft);
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-mint: var(--mint);
+  --color-parchment: var(--parchment);
+  --color-paper: var(--paper);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-public-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--green);
+  color: var(--indigo);
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
