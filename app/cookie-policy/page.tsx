@@ -6,6 +6,7 @@ import { orgName } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description: "How Edfrica uses cookies and similar technologies.",
+  alternates: { canonical: "/cookie-policy" },
 };
 
 const sections: LegalSection[] = [

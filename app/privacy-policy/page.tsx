@@ -6,6 +6,7 @@ import { contact, orgName } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How Edfrica Solutions Limited collects, uses, and protects personal data.",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 const sections: LegalSection[] = [

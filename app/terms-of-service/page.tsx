@@ -6,6 +6,7 @@ import { contact, orgName, pillars } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "The terms governing use of Edfrica's platforms and services.",
+  alternates: { canonical: "/terms-of-service" },
 };
 
 const sections: LegalSection[] = [

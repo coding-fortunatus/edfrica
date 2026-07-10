@@ -17,9 +17,10 @@ const extras: Record<string, React.ReactNode> = {
 };
 
 export const metadata: Metadata = {
-  title: "Ecosystem",
+  title: "Our Five-Pillar Ecosystem",
   description:
-    "A deep dive into Edfrica's five pillars — Media, Institute, Education, Infrastructure, and Foundation.",
+    "A deep dive into Edfrica's five pillars — Media, Institute, Education (TLab), Infrastructure (The Hub), and Foundation — building youth entrepreneurship and STEAM innovation across Africa.",
+  alternates: { canonical: "/ecosystem" },
 };
 
 export default function EcosystemPage() {

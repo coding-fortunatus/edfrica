@@ -6,6 +6,7 @@ import { contact, orgName } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Data Protection Policy",
   description: "Edfrica's data protection commitments under Nigeria's Data Protection Act.",
+  alternates: { canonical: "/data-protection-policy" },
 };
 
 const sections: LegalSection[] = [

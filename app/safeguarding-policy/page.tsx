@@ -5,6 +5,7 @@ import { contact, orgName } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Safeguarding & Child Protection Policy",
   description: "Edfrica's commitment to safeguarding, including child protection on TLab.",
+  alternates: { canonical: "/safeguarding-policy" },
 };
 
 const sections: LegalSection[] = [
