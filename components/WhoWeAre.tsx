@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { missionVision } from "@/lib/content";
 import { AmbientBackdrop } from "@/components/AmbientBackdrop";
 import { CompassIcon, StarIcon } from "@/components/icons";
@@ -22,11 +22,12 @@ export function WhoWeAre() {
           </div>
 
           <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
-            <Image
+            <ImageWithSkeleton
               src="/photos/hub-exterior.jpg"
               alt="The Edfrica Hub building exterior in Sokenu, Abeokuta"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
+              priority
               className="object-cover"
             />
           </div>

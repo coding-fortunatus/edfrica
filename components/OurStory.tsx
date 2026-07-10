@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { timeline } from "@/lib/content";
 
 export function OurStory() {
@@ -36,14 +36,16 @@ export function OurStory() {
             </ol>
           </div>
 
-          <div className="relative aspect-4/5 overflow-hidden rounded-3xl lg:sticky lg:top-24">
-            <Image
-              src="/photos/business-consulting.jpg"
-              alt="An Edfrica consultant leading a business training session"
-              fill
-              sizes="(min-width: 1024px) 40vw, 90vw"
-              className="object-cover"
-            />
+          <div className="lg:sticky lg:top-24">
+            <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
+              <ImageWithSkeleton
+                src="/photos/business-consulting.jpg"
+                alt="An Edfrica consultant leading a business training session"
+                fill
+                sizes="(min-width: 1024px) 40vw, 90vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { contact, footerNav, pillars } from "@/lib/content";
 import { ExternalLinkIcon } from "@/components/icons";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 export function CtaFooter() {
   return (
@@ -9,11 +9,12 @@ export function CtaFooter() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
-            <Image
+            <ImageWithSkeleton
               src="/logo.png"
               alt="Edfrica"
               width={140}
               height={42}
+              shimmer={false}
               className="h-9 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">

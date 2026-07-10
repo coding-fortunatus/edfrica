@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { partnerAudiences, whyPartner, contact } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { AmbientBackdrop } from "@/components/AmbientBackdrop";
@@ -37,11 +37,12 @@ export function PartnerWith() {
             </div>
 
             <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
-              <Image
+              <ImageWithSkeleton
                 src="/photos/community-outreach.jpg"
                 alt="Edfrica volunteers and children at a community outreach event"
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
+                priority
                 className="object-cover"
               />
             </div>
@@ -100,7 +101,7 @@ export function PartnerWith() {
       </section>
 
       <section className="relative overflow-hidden py-16 text-white">
-        <Image
+        <ImageWithSkeleton
           src="/photos/digital-platform.jpg"
           alt=""
           fill

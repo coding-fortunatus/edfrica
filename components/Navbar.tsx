@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { pillars, type Pillar } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import {
   ChevronDownIcon,
   CloseIcon,
@@ -68,12 +68,13 @@ export function Navbar() {
           className="flex items-center gap-2.5"
           aria-label="Edfrica home"
         >
-          <Image
+          <ImageWithSkeleton
             src="/icon-mark.png"
             alt=""
             width={40}
             height={40}
             priority
+            shimmer={false}
             className="h-9 w-9"
           />
           <span className="font-display text-2xl font-semibold text-ink">

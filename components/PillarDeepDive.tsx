@@ -1,7 +1,7 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { Chip } from "@/components/ui/Chip";
 import { Button } from "@/components/ui/Button";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { ArrowRightIcon, CheckIcon } from "@/components/icons";
 import type { Pillar } from "@/lib/content";
 
@@ -10,6 +10,7 @@ type PillarDeepDiveProps = {
   reversed?: boolean;
   tinted?: boolean;
   extra?: ReactNode;
+  priority?: boolean;
 };
 
 export function PillarDeepDive({
@@ -17,6 +18,7 @@ export function PillarDeepDive({
   reversed = false,
   tinted = false,
   extra,
+  priority = false,
 }: PillarDeepDiveProps) {
   const textBlock = (
     <div>
@@ -58,11 +60,12 @@ export function PillarDeepDive({
 
   const imageBlock = (
     <div className="relative aspect-3/2 overflow-hidden rounded-2xl">
-      <Image
+      <ImageWithSkeleton
         src={pillar.photo}
         alt={pillar.photoAlt}
         fill
         sizes="(min-width: 1024px) 40vw, 90vw"
+        priority={priority}
         className="object-cover"
       />
     </div>

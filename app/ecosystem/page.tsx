@@ -61,6 +61,7 @@ export default function EcosystemPage() {
             reversed={index % 2 === 1}
             tinted={index % 2 === 1}
             extra={extras[pillar.id]}
+            priority={index === 0}
           />
         ))}
       </div>

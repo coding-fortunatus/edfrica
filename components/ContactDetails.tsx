@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { contact } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { MapPinIcon } from "@/components/icons";
@@ -113,11 +113,12 @@ export function ContactDetails() {
 
           <div>
             <div className="relative aspect-3/2 overflow-hidden rounded-2xl">
-              <Image
+              <ImageWithSkeleton
                 src="/photos/hub-exterior.jpg"
                 alt="The Edfrica Hub building exterior in Sokenu, Abeokuta"
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
+                priority
                 className="object-cover"
               />
             </div>

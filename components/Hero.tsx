@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { AmbientBackdrop } from "@/components/AmbientBackdrop";
 import { AnnotationTag } from "@/components/AnnotationTag";
 import { SketchArrow } from "@/components/SketchArrow";
@@ -56,7 +56,7 @@ export function Hero() {
           </div>
 
           <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
-            <Image
+            <ImageWithSkeleton
               src="/photos/hub-exterior.jpg"
               alt="The Edfrica Hub building exterior in Sokenu, Abeokuta"
               fill
