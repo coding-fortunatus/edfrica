@@ -8,7 +8,6 @@ import {
   TwitterIcon,
 } from "@/components/icons";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const socialIcons = [
   { key: "linkedin", label: "LinkedIn", Icon: LinkedinIcon },
@@ -23,19 +22,6 @@ export function CtaFooter() {
   return (
     <footer className="border-t border-white/10 bg-indigo text-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-8 border-b border-white/10 py-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="font-display text-2xl font-semibold">
-              Opportunities, in your inbox
-            </h2>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-white/65">
-              Funding calls, fellowships, and enterprise news curated by Edfrica
-              Media.
-            </p>
-          </div>
-          <NewsletterSignup />
-        </div>
-
         <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <ImageWithSkeleton

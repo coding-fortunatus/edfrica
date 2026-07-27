@@ -1,65 +1,75 @@
+"use client";
+
+import { useState } from "react";
 import { partnerAudiences } from "@/lib/content";
-import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
-import { Button } from "@/components/ui/Button";
-import { getIcon } from "@/components/iconRegistry";
-import { ArrowRightIcon } from "@/components/icons";
+import { Icon } from "@/components/iconRegistry";
 
 export function WhoWeServe() {
+  const [active, setActive] = useState(0);
+  const audience = partnerAudiences[active];
+
   return (
     <section id="who-we-serve" className="scroll-mt-24 bg-paper py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
-          Who We Serve
-        </p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
-          Partners we build with
-        </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
-          Built for donor and institutional due diligence — NGOs, corporates,
-          government agencies, and academic institutions all plug into the same
-          trusted infrastructure.
-        </p>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {partnerAudiences.map((audience) => {
-            const Icon = getIcon(audience.icon);
-            return (
-              <article
-                key={audience.title}
-                className="group relative aspect-4/5 overflow-hidden rounded-3xl transition-transform duration-300 hover:-translate-y-1.5"
-              >
-                <ImageWithSkeleton
-                  src={audience.photo}
-                  alt={audience.photoAlt}
-                  fill
-                  sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-linear-to-t from-ink/90 via-ink/50 to-ink/10"
-                />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="mt-4 font-display text-xl font-semibold">
-                    {audience.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/75">
-                    {audience.body}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
+        <div className="text-center">
+          <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
+            Who We Serve
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+            Partnering for your growth
+          </h2>
         </div>
 
-        <div className="mt-10">
-          <Button href="/partner" variant="secondary">
-            Partner with us
-            <ArrowRightIcon />
-          </Button>
+        <div className="mx-auto mt-12 min-h-40 max-w-3xl text-center">
+          <p className="text-xl leading-relaxed text-ink/75 sm:text-2xl">
+            {audience.body}
+          </p>
+          <p className="mt-8 font-mono text-sm tracking-wide text-green-deep">
+            {audience.title}
+          </p>
+        </div>
+
+        {/* Audience switcher — the active tab carries the rule, the rest sit on
+            a hairline, mirroring a logo strip. */}
+        <div
+          role="tablist"
+          aria-label="Partner audiences"
+          className="mx-auto mt-14 grid max-w-4xl grid-cols-2 border-t border-ink/12 sm:grid-cols-4"
+        >
+          {partnerAudiences.map((item, index) => {
+            const selected = index === active;
+            return (
+              <button
+                key={item.title}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setActive(index)}
+                className={`group relative -mt-px flex flex-col items-center gap-3 border-t-2 px-4 py-7 transition-colors ${
+                  selected
+                    ? "border-green-deep"
+                    : "border-transparent hover:border-ink/20"
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-2xl transition-colors ${
+                    selected
+                      ? "bg-green-deep text-white"
+                      : "bg-parchment text-ink/40 group-hover:text-ink/70"
+                  }`}
+                >
+                  <Icon name={item.icon} className="h-5 w-5" />
+                </span>
+                <span
+                  className={`text-center text-sm font-medium transition-colors ${
+                    selected ? "text-ink" : "text-ink/45 group-hover:text-ink/75"
+                  }`}
+                >
+                  {item.title}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
