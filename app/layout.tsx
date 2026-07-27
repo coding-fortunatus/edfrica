@@ -73,6 +73,18 @@ export const viewport: Viewport = {
   themeColor: "#2f8f3c",
 };
 
+/**
+ * Runs before first paint so a dark-mode visitor never sees a white flash.
+ * The storage key must match THEME_STORAGE_KEY in components/ThemeToggle.tsx.
+ */
+const themeBootstrap = `
+(function(){try{
+var p=localStorage.getItem('edfrica-theme')||'system';
+var d=p==='dark'||(p==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+document.documentElement.classList.toggle('dark',d);
+}catch(e){}})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,7 +94,11 @@ export default function RootLayout({
     <html
       lang="en"
       className={`h-full antialiased ${fraunces.variable} ${publicSans.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+      </head>
       <body className="flex min-h-full flex-col bg-paper font-sans text-ink">
         <OrganizationSchema />
         <Navbar />

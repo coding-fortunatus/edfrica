@@ -20,7 +20,10 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-paper";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-green-deep text-white hover:bg-indigo",
+  // In dark mode `green-deep` is brightened for legibility, so white label
+  // text no longer has the contrast it does on the light-mode green.
+  primary:
+    "bg-green-deep text-white hover:bg-indigo hover:text-white dark:text-indigo",
   secondary:
     "border border-ink/25 text-ink hover:border-indigo hover:bg-indigo hover:text-white",
   ghost: "text-ink hover:text-green-deep px-0 py-0",

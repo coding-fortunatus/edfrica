@@ -53,14 +53,17 @@ export function ServiceCarousel({ services }: { services: Service[] }) {
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 46vw, 85vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/75 to-ink/35" />
+              {/* Title sits top, button sits bottom — so both ends need to be
+                  dark, with the photo readable through the middle. */}
+              <div className="absolute inset-0 bg-scrim/55" />
+              <div className="absolute inset-0 bg-linear-to-b from-scrim/85 via-scrim/25 to-scrim/90" />
             </div>
 
             <div className="relative">
               <h3 className="font-display text-xl leading-snug font-semibold">
                 {service.number}. {service.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/75">
+              <p className="mt-3 text-sm leading-relaxed text-white/85">
                 {service.descriptor}
               </p>
             </div>

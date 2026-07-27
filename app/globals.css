@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
+/* Theme is class-driven so the toggle can override the OS preference. The
+   inline script in app/layout.tsx stamps `.dark` before first paint. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  color-scheme: light;
+
   --background: #ffffff;
   --foreground: #16114b;
 
@@ -13,6 +19,29 @@
   --green-deep: var(--green);
   --mint: color-mix(in srgb, var(--green) 14%, white);
   --parchment: color-mix(in srgb, var(--indigo) 5%, white);
+
+  /* Always-dark overlay colour for text-over-photo scrims. Never flips with
+     the theme — a scrim has to stay dark for white text to survive. */
+  --scrim: #0b0820;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #100d2e;
+  --foreground: #ece9f7;
+
+  /* `ink` is the foreground token, so it inverts; `indigo` stays a dark
+     surface colour and is lifted slightly so bands read against `paper`. */
+  --ink: #ece9f7;
+  --indigo: #1b1554;
+  --green: #52b862;
+  --paper: #100d2e;
+
+  --indigo-soft: var(--indigo);
+  --green-deep: var(--green);
+  --mint: color-mix(in srgb, var(--green) 18%, var(--paper));
+  --parchment: color-mix(in srgb, white 7%, var(--paper));
 }
 
 @theme inline {
@@ -27,6 +56,7 @@
   --color-mint: var(--mint);
   --color-parchment: var(--parchment);
   --color-paper: var(--paper);
+  --color-scrim: var(--scrim);
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-public-sans);
@@ -40,11 +70,18 @@
 body {
   background: var(--paper);
   color: var(--ink);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 ::selection {
   background: var(--green);
   color: var(--indigo);
+}
+
+.dark ::selection {
+  color: #0b0820;
 }
 
 :focus-visible {

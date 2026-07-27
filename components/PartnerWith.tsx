@@ -58,7 +58,7 @@ export function PartnerWith() {
               return (
                 <div
                   key={audience.title}
-                  className="rounded-3xl border border-ink/10 bg-white p-8"
+                  className="rounded-3xl border border-ink/10 bg-paper p-8"
                 >
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-mint text-green-deep">
                     <Icon />

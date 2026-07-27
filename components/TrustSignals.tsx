@@ -13,7 +13,7 @@ export function TrustSignals() {
         className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(22,17,75,0.22) 1.5px, transparent 1.5px)",
+            "radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) 1.5px, transparent 1.5px)",
           backgroundSize: "22px 22px",
           maskImage:
             "radial-gradient(ellipse 70% 55% at 75% 50%, #000 30%, transparent 75%)",

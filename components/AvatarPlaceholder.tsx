@@ -43,7 +43,7 @@ export function AvatarPlaceholder({
         style={{
           backgroundImage:
             "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 1px, transparent 10px)",
-          color: isDark ? "#ffffff" : "#16114b",
+          color: isDark ? "#ffffff" : "var(--ink)",
         }}
       />
       <PersonIcon

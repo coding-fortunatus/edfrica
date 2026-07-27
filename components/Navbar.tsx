@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { getIcon } from "@/components/iconRegistry";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   ArrowRightIcon,
   ChevronDownIcon,
@@ -97,7 +98,7 @@ function Dropdown({
         }`}
       >
         <div
-          className={`rounded-3xl border border-ink/10 bg-white p-2.5 shadow-[0_28px_70px_-24px_rgba(22,17,75,0.4)] ring-1 ring-black/5 transition-all duration-200 ${
+          className={`rounded-3xl border border-ink/10 bg-paper p-2.5 shadow-[0_28px_70px_-24px_rgba(22,17,75,0.4)] ring-1 ring-black/5 transition-all duration-200 ${
             open ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
           }`}
         >
@@ -334,7 +335,8 @@ export function Navbar() {
           </Link>
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <ThemeToggle onDark={overHero} />
           <Button
             href="/partner"
             variant={overHero ? "outline-light" : "primary"}
@@ -416,6 +418,13 @@ export function Navbar() {
             <Button href="/partner" variant="primary" className="mt-3 w-full">
               Partner With Us
             </Button>
+
+            <div className="mt-5 flex items-center justify-between border-t border-ink/10 pt-5">
+              <span className="font-mono text-xs tracking-wider text-ink/45 uppercase">
+                Theme
+              </span>
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}

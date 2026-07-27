@@ -125,7 +125,7 @@ export function Leadership() {
           {managementTeam.map((name) => (
             <div
               key={name}
-              className="rounded-2xl border border-ink/10 bg-white p-6 text-center"
+              className="rounded-2xl border border-ink/10 bg-paper p-6 text-center"
             >
               <AvatarPlaceholder name={name} tone="parchment" size="sm" className="mx-auto" />
               <p className="mt-4 text-sm font-semibold text-ink">{name}</p>
