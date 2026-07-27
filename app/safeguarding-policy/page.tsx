@@ -78,7 +78,7 @@ const sections: LegalSection[] = [
       <p>
         Anyone — staff, parent, guardian, or participant — who has a
         safeguarding concern should report it immediately to{" "}
-        <a href={`mailto:${contact.email}`} className="text-indigo hover:text-green-deep">
+        <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
           {contact.email}
         </a>
         . Reports are treated confidentially, and no one raising a genuine

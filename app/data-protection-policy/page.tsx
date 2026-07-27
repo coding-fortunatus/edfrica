@@ -18,7 +18,7 @@ const sections: LegalSection[] = [
         This policy sets out how {orgName} meets its obligations under the
         Nigeria Data Protection Act 2023 (NDPA) and the Nigeria Data
         Protection Regulation (NDPR), and complements our{" "}
-        <Link href="/privacy-policy" className="text-indigo hover:text-green-deep">
+        <Link href="/privacy-policy" className="text-ink hover:text-green-deep">
           Privacy Policy
         </Link>
         .
@@ -96,7 +96,7 @@ const sections: LegalSection[] = [
       <p>
         Questions, requests, or complaints regarding data protection can be
         directed to our Data Protection contact at{" "}
-        <a href={`mailto:${contact.email}`} className="text-indigo hover:text-green-deep">
+        <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
           {contact.email}
         </a>
         .

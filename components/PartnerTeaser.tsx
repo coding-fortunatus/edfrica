@@ -21,7 +21,7 @@ export function PartnerTeaser() {
             </p>
             <Link
               href="/partner"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-indigo"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-ink"
             >
               See why organizations partner with us <ArrowRightIcon />
             </Link>

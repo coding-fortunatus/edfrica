@@ -170,7 +170,7 @@ export default function HubPage() {
                 <h3 className="font-display text-xl font-semibold text-ink">
                   {tier.name}
                 </h3>
-                <p className="mt-4 font-mono text-3xl font-medium text-indigo">
+                <p className="mt-4 font-mono text-3xl font-medium text-ink">
                   {tier.price}
                 </p>
                 <p className="mt-1 text-xs text-ink/50">{tier.unit}</p>

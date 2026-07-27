@@ -71,7 +71,7 @@ export function ContactDetails() {
                 <dd className="mt-1.5">
                   <a
                     href={`mailto:${contact.email}`}
-                    className="text-lg font-medium text-indigo hover:text-green-deep"
+                    className="text-lg font-medium text-ink hover:text-green-deep"
                   >
                     {contact.email}
                   </a>
@@ -86,7 +86,7 @@ export function ContactDetails() {
                     <a
                       key={phone}
                       href={`tel:${phone.replace(/\s+/g, "")}`}
-                      className="text-lg font-medium text-indigo hover:text-green-deep"
+                      className="text-lg font-medium text-ink hover:text-green-deep"
                     >
                       {phone}
                     </a>

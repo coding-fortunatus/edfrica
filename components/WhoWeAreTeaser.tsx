@@ -18,7 +18,7 @@ export function WhoWeAreTeaser() {
           </p>
           <Link
             href="/about"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-indigo"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-ink"
           >
             Learn more about us <ArrowRightIcon />
           </Link>

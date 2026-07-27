@@ -52,7 +52,7 @@ const sections: LegalSection[] = [
           <li>
             <span className="font-medium text-ink">Cookies:</span> as
             described in our{" "}
-            <Link href="/cookie-policy" className="text-indigo hover:text-green-deep">
+            <Link href="/cookie-policy" className="text-ink hover:text-green-deep">
               Cookie Policy
             </Link>
             .
@@ -110,11 +110,11 @@ const sections: LegalSection[] = [
         <p>
           Parents and guardians may review, correct, or request deletion of
           their child&rsquo;s data at any time by contacting{" "}
-          <a href={`mailto:${contact.email}`} className="text-indigo hover:text-green-deep">
+          <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
             {contact.email}
           </a>
           . See also our{" "}
-          <Link href="/safeguarding-policy" className="text-indigo hover:text-green-deep">
+          <Link href="/safeguarding-policy" className="text-ink hover:text-green-deep">
             Safeguarding & Child Protection Policy
           </Link>
           .
@@ -130,7 +130,7 @@ const sections: LegalSection[] = [
         We use cookies and similar technologies to operate our platforms and
         understand usage. Full detail, including how to manage your
         preferences, is available in our{" "}
-        <Link href="/cookie-policy" className="text-indigo hover:text-green-deep">
+        <Link href="/cookie-policy" className="text-ink hover:text-green-deep">
           Cookie Policy
         </Link>
         .
@@ -180,7 +180,7 @@ const sections: LegalSection[] = [
         </ul>
         <p>
           To exercise any of these rights, contact{" "}
-          <a href={`mailto:${contact.email}`} className="text-indigo hover:text-green-deep">
+          <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
             {contact.email}
           </a>
           .
@@ -230,7 +230,7 @@ const sections: LegalSection[] = [
     body: (
       <p>
         Questions about this policy or our data practices can be directed to{" "}
-        <a href={`mailto:${contact.email}`} className="text-indigo hover:text-green-deep">
+        <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
           {contact.email}
         </a>
         .

@@ -14,7 +14,7 @@ function parseValue(value: string) {
 }
 
 const numberTone: Record<Tone, string> = {
-  light: "text-indigo",
+  light: "text-ink",
   dark: "text-white",
 };
 

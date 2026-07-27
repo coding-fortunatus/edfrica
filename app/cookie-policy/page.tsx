@@ -92,7 +92,7 @@ const sections: LegalSection[] = [
       <p>
         We may update this Cookie Policy from time to time to reflect changes
         in the cookies we use or for legal or regulatory reasons. See our{" "}
-        <Link href="/privacy-policy" className="text-indigo hover:text-green-deep">
+        <Link href="/privacy-policy" className="text-ink hover:text-green-deep">
           Privacy Policy
         </Link>{" "}
         for how we handle personal data more broadly.

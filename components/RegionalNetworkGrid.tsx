@@ -12,7 +12,7 @@ export function RegionalNetworkGrid() {
             key={country.name}
             className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
               country.bloc === "AES"
-                ? "border-indigo/25 bg-indigo/5 text-indigo"
+                ? "border-ink/25 bg-ink/5 text-ink"
                 : "border-green-deep/20 bg-mint text-green-deep"
             }`}
           >

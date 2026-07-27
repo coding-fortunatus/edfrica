@@ -81,7 +81,7 @@ export function LegalPageLayout({
                 Questions about this policy? Contact us at{" "}
                 <a
                   href={`mailto:${contact.email}`}
-                  className="font-medium text-indigo hover:text-green-deep"
+                  className="font-medium text-ink hover:text-green-deep"
                 >
                   {contact.email}
                 </a>

@@ -56,11 +56,11 @@ const sections: LegalSection[] = [
         organizations acting through an authorized representative. TLab is
         the exception, built specifically for children aged 3&ndash;15 under
         parental or guardian consent and supervision, as described in our{" "}
-        <Link href="/privacy-policy" className="text-indigo hover:text-green-deep">
+        <Link href="/privacy-policy" className="text-ink hover:text-green-deep">
           Privacy Policy
         </Link>{" "}
         and{" "}
-        <Link href="/safeguarding-policy" className="text-indigo hover:text-green-deep">
+        <Link href="/safeguarding-policy" className="text-ink hover:text-green-deep">
           Safeguarding & Child Protection Policy
         </Link>
         . You are responsible for maintaining the confidentiality of any
@@ -174,7 +174,7 @@ const sections: LegalSection[] = [
     body: (
       <p>
         Questions about these Terms can be directed to{" "}
-        <a href={`mailto:${contact.email}`} className="text-indigo hover:text-green-deep">
+        <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
           {contact.email}
         </a>
         .

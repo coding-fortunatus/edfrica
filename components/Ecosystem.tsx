@@ -74,7 +74,7 @@ function PillarCard({ pillar, wide = false }: { pillar: Pillar; wide?: boolean }
 
         <div className="mt-auto flex items-end justify-between gap-4 border-t border-ink/8 pt-5">
           <div className="min-w-0">
-            <p className="font-mono text-base font-semibold text-indigo">
+            <p className="font-mono text-base font-semibold text-ink">
               {pillar.stat.value}
             </p>
             <p className="truncate text-[11px] text-ink/50">

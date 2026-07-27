@@ -275,7 +275,7 @@ export function Navbar() {
               </p>
               <Link
                 href="/services"
-                className="flex shrink-0 items-center gap-1.5 font-mono text-xs tracking-wider text-green-deep uppercase hover:text-indigo"
+                className="flex shrink-0 items-center gap-1.5 font-mono text-xs tracking-wider text-green-deep uppercase hover:text-ink"
               >
                 All services
                 <ArrowRightIcon className="h-3 w-3" />

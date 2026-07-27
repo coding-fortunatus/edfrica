@@ -37,91 +37,94 @@ const stroke = (d: string, w = 1.4) =>
 
 type Spec = { image: string; size: string; opacity: number };
 
+/**
+ * Motifs are deliberately large — a typical section should show only a handful
+ * of repeats, not a fine mesh. Every SVG tile uses a viewBox matching its mask
+ * size so strokes stay hairline rather than scaling up with the tile.
+ */
 const specs: Record<PatternVariant, Spec> = {
-  // The original signature texture — rationed to once per page.
+  // The signature texture — rationed to once per page.
   dots: {
-    image: "radial-gradient(circle, black 1px, transparent 1.5px)",
-    size: "24px 24px",
+    image: "radial-gradient(circle, black 1.5px, transparent 2px)",
+    size: "88px 88px",
     opacity: 1,
   },
   grid: {
     image:
       "linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px)",
-    size: "48px 48px, 48px 48px",
-    opacity: 0.75,
+    size: "170px 170px, 170px 170px",
+    opacity: 0.85,
   },
   diagonals: {
     image:
-      "repeating-linear-gradient(45deg, black 0 1px, transparent 1px 16px)",
+      "repeating-linear-gradient(45deg, black 0 1.2px, transparent 1.2px 170px)",
     size: "auto",
-    opacity: 0.8,
+    opacity: 0.95,
   },
   crosshatch: {
     image:
-      "repeating-linear-gradient(45deg, black 0 1px, transparent 1px 22px), repeating-linear-gradient(-45deg, black 0 1px, transparent 1px 22px)",
-    size: "auto",
-    opacity: 0.7,
-  },
-  // Radiating rings — reads as reach and ripple.
-  arcs: {
-    image:
-      "repeating-radial-gradient(circle at 50% 118%, black 0 1.2px, transparent 1.2px 46px)",
+      "repeating-linear-gradient(45deg, black 0 1.2px, transparent 1.2px 190px), repeating-linear-gradient(-45deg, black 0 1.2px, transparent 1.2px 190px)",
     size: "auto",
     opacity: 0.9,
   },
+  // A few wide radiating rings — reads as reach and ripple.
+  arcs: {
+    image:
+      "repeating-radial-gradient(circle at 50% 128%, black 0 1.3px, transparent 1.3px 155px)",
+    size: "auto",
+    opacity: 1,
+  },
   chevron: {
-    image: svg(stroke("M0 15 L10 5 L20 15 L30 5 L40 15"), 40, 20),
-    size: "40px 20px",
-    opacity: 0.85,
+    image: svg(stroke("M0 122 L80 42 L160 122 L240 42 L320 122", 1.5), 320, 164),
+    size: "320px 164px",
+    opacity: 0.95,
   },
   // Interlocking diamond lattice, in the spirit of woven textile.
   weave: {
     image: svg(
       `<g fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round'>${[
-        "M0 20h40M20 0v40",
-        "M0 0l20 20M40 0L20 20M0 40l20-20M40 40L20 20",
+        "M0 130h260M130 0v260",
+        "M0 0l130 130M260 0L130 130M0 260l130-130M260 260L130 130",
       ]
         .map((d) => `<path d='${d}'/>`)
         .join("")}</g>`,
-      40,
-      40,
+      260,
+      260,
     ),
-    size: "40px 40px",
-    opacity: 0.7,
+    size: "260px 260px",
+    opacity: 0.85,
   },
-  // Topographic lines — echoes the 15-country regional footprint.
+  // Four topographic lines — echoes the 15-country regional footprint.
   contour: {
     image: svg(
-      `<g fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round'>${[
-        "M0 12q20-11 40 0t40 0",
-        "M0 26q20-11 40 0t40 0",
-        "M0 40q20-11 40 0t40 0",
+      `<g fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'>${[
+        90, 205, 320, 435,
       ]
-        .map((d) => `<path d='${d}'/>`)
+        .map((y) => `<path d='M0 ${y} q190-70 380 0 t380 0'/>`)
         .join("")}</g>`,
-      80,
-      48,
+      760,
+      500,
     ),
-    size: "80px 48px",
-    opacity: 0.85,
+    size: "760px 500px",
+    opacity: 1,
   },
   triangles: {
     image: svg(
-      `<g fill='none' stroke='black' stroke-width='1.2' stroke-linejoin='round'>
-        <path d='M15 3 L28 25 L2 25 Z'/>
-        <path d='M0 29 L7 41 L-7 41 Z'/>
-        <path d='M30 29 L37 41 L23 41 Z'/>
+      `<g fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'>
+        <path d='M110 26 L196 176 L24 176 Z'/>
+        <path d='M0 216 L54 300 L-54 300 Z'/>
+        <path d='M220 216 L274 300 L166 300 Z'/>
       </g>`,
-      30,
-      44,
+      220,
+      300,
     ),
-    size: "30px 44px",
-    opacity: 0.75,
+    size: "220px 300px",
+    opacity: 0.9,
   },
   waves: {
-    image: svg(stroke("M0 9 q5-6 10 0 t10 0 t10 0 t10 0", 1.2), 40, 18),
-    size: "40px 18px",
-    opacity: 0.8,
+    image: svg(stroke("M0 74 q45-52 90 0 t90 0 t90 0 t90 0", 1.4), 360, 150),
+    size: "360px 150px",
+    opacity: 0.95,
   },
 };
 
@@ -157,7 +160,9 @@ export function Pattern({
       <div
         className={`absolute inset-0 ${tone === "dark" ? "bg-white" : "bg-ink"}`}
         style={{
-          opacity: (tone === "dark" ? 0.14 : 0.1) * spec.opacity,
+          // Deliberately near-threshold: the texture should register as paper
+          // grain, not as a graphic element competing with the content.
+          opacity: (tone === "dark" ? 0.055 : 0.045) * spec.opacity,
           maskImage: spec.image,
           WebkitMaskImage: spec.image,
           maskSize: spec.size,
