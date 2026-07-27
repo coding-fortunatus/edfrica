@@ -34,15 +34,18 @@ const pillarIcons: Record<string, typeof MegaphoneIcon> = {
 
 function GatewayCard({ pillar }: { pillar: Pillar }) {
   const Icon = pillarIcons[pillar.id] ?? MegaphoneIcon;
+  const className = `group relative flex h-full flex-col overflow-hidden rounded-t-[2.25rem] rounded-b-xl border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${toneClasses[pillar.tone]}`;
+
+  const externalProps = pillar.external
+    ? {
+        target: "_blank",
+        rel: "noopener noreferrer",
+        "aria-label": `Visit ${pillar.name}, opens in a new tab`,
+      }
+    : { "aria-label": `Visit ${pillar.name}` };
 
   return (
-    <a
-      href={pillar.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Visit ${pillar.name}, opens in a new tab`}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-t-[2.25rem] rounded-b-xl border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${toneClasses[pillar.tone]}`}
-    >
+    <a href={pillar.href} className={className} {...externalProps}>
       <span
         aria-hidden="true"
         className="absolute inset-x-6 top-0 h-1.5 rounded-b-full bg-green-deep"
@@ -54,11 +57,15 @@ function GatewayCard({ pillar }: { pillar: Pillar }) {
         >
           <Icon className="h-6 w-6" />
         </span>
-        <span className="font-mono text-[11px] opacity-40">{pillar.number}</span>
+        <span className="font-mono text-[11px] opacity-40">
+          {pillar.number}
+        </span>
       </div>
 
       <h3 className="mt-5 font-display text-xl font-semibold">{pillar.role}</h3>
-      <p className="mt-2 text-sm leading-relaxed opacity-80">{pillar.tagline}</p>
+      <p className="mt-2 text-sm leading-relaxed opacity-80">
+        {pillar.tagline}
+      </p>
 
       <div className="mt-auto flex items-end justify-between pt-6">
         <div>
@@ -85,7 +92,10 @@ type EcosystemProps = {
 
 export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
   return (
-    <section id="ecosystem" className="relative overflow-hidden bg-paper py-24">
+    <section
+      id="ecosystem"
+      className="relative scroll-mt-24 overflow-hidden bg-paper py-24"
+    >
       <AmbientBackdrop tone="light" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -96,9 +106,8 @@ export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
           Five pillars, one Edfrica
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
-          Each pillar is its own destination with its own team and roadmap.
-          Step through to explore — every card opens the live platform in a
-          new tab.
+          Each pillar is its own destination with its own team and roadmap. Step
+          through to explore.
         </p>
 
         <div className="relative mt-12">
@@ -109,7 +118,10 @@ export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
             <AnnotationTag tone="green" rotate="right">
               5 live destinations
             </AnnotationTag>
-            <SketchArrow variant="toGrid" className="h-12 w-12 text-green-deep" />
+            <SketchArrow
+              variant="toGrid"
+              className="h-12 w-12 text-green-deep"
+            />
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">

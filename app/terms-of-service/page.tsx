@@ -36,7 +36,11 @@ const sections: LegalSection[] = [
           {pillars.map((pillar) => (
             <li key={pillar.id}>
               <span className="font-medium text-ink">{pillar.role}</span> —{" "}
-              {pillar.name} ({new URL(pillar.href).host})
+              {pillar.name} (
+              {pillar.external
+                ? new URL(pillar.href).host
+                : `edfrica.org${pillar.href}`}
+              )
             </li>
           ))}
         </ul>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { WhoWeAre } from "@/components/WhoWeAre";
 import { OurStory } from "@/components/OurStory";
+import { StatsBar } from "@/components/StatsBar";
+import { TrustSignals } from "@/components/TrustSignals";
 
 export const metadata: Metadata = {
   title: "About Us — Our Story & Mission",
@@ -12,8 +14,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <WhoWeAre />
+      {/* Anchor targets for the Company menu in the navbar. */}
+      <div id="mission-vision" className="scroll-mt-24">
+        <WhoWeAre />
+      </div>
       <OurStory />
+      <div id="impact" className="scroll-mt-24">
+        <StatsBar />
+        <TrustSignals />
+      </div>
     </>
   );
 }

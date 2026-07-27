@@ -8,11 +8,16 @@ export type Pillar = {
   number: string;
   name: string;
   role: string;
+  /** Label used in the primary nav and footer, which differs from `role`. */
+  navLabel: string;
   tagline: string;
   description: string;
   bullets: string[];
   stat: Stat;
   href: string;
+  /** Media, STEM and Social Enterprise live on subdomains; Hub and Institute
+   *  are pages on this site. Drives target="_blank" + the external-link icon. */
+  external: boolean;
   tone: "green" | "indigo" | "parchment";
   photo: string;
   photoAlt: string;
@@ -26,6 +31,9 @@ export type TimelineEntry = {
 export type PartnerAudience = {
   title: string;
   body: string;
+  icon: string;
+  photo: string;
+  photoAlt: string;
 };
 
 export type LeadershipMember = {
@@ -80,8 +88,9 @@ export const pillars: Pillar[] = [
   {
     id: "media",
     number: "01",
-    name: "Edfrica.org",
+    name: "Edfrica Media",
     role: "Media",
+    navLabel: "Media",
     tagline: "Africa's opportunity intelligence platform",
     description:
       "The leading platform for African entrepreneurs, providing business news, scholarships, tech insights, and funding opportunities across the continent. It is the beneficiary pipeline and dissemination engine for the entire Edfrica ecosystem.",
@@ -91,7 +100,8 @@ export const pillars: Pillar[] = [
       "Publishes business news and sector insights across Africa",
     ],
     stat: { value: "25,000+", label: "monthly platform users" },
-    href: "https://news.edfrica.org",
+    href: "https://media.edfrica.org",
+    external: true,
     tone: "green",
     photo: "/photos/digital-platform.jpg",
     photoAlt: "Hands typing on a laptop displaying the Edfrica platform",
@@ -101,6 +111,7 @@ export const pillars: Pillar[] = [
     number: "02",
     name: "Edfrica Institute",
     role: "Institute",
+    navLabel: "Institute",
     tagline: "Institute for Innovation & Enterprise (EIIE)",
     description:
       "Nigeria's entrepreneurship (ESO) and innovation (ISO) support institute, headquartered in Abeokuta with a regional network across all 15 ECOWAS and Alliance of Sahel States countries.",
@@ -110,7 +121,8 @@ export const pillars: Pillar[] = [
       "OGEII — Ogun Enterprise & Innovation Institute chapter, based at The Edfrica Hub",
     ],
     stat: { value: "15-country", label: "regional network" },
-    href: "https://institute.edfrica.org",
+    href: "/institute",
+    external: false,
     tone: "indigo",
     photo: "/photos/business-consulting.jpg",
     photoAlt: "An Edfrica consultant leading a business training session",
@@ -120,6 +132,7 @@ export const pillars: Pillar[] = [
     number: "03",
     name: "TLab",
     role: "Education",
+    navLabel: "STEM",
     tagline: "Africa's gamified STEAM platform for kids",
     description:
       "A safe, gamified STEAM learning ecosystem for African children aged 3 to 15, fully COPPA and GDPR-K compliant. Children earn XP and progress through five ranks.",
@@ -129,7 +142,8 @@ export const pillars: Pillar[] = [
       "Edfrica's clearest compliance proof point for child-safety-focused donors",
     ],
     stat: { value: "Ages 3–15", label: "COPPA / GDPR-K compliant" },
-    href: "https://education.edfrica.org",
+    href: "https://tlab.edfrica.org",
+    external: true,
     tone: "parchment",
     photo: "/photos/robotics-workshop.jpg",
     photoAlt: "A student-built robotics project from a TLab STEAM session",
@@ -139,6 +153,7 @@ export const pillars: Pillar[] = [
     number: "04",
     name: "The Edfrica Hub",
     role: "Infrastructure",
+    navLabel: "Innovation Hub",
     tagline: "A physical home for innovation",
     description:
       "A co-working, training, and event space in Sokenu, off Nawairudeen Road, Abeokuta South LGA — the operational base for OGEII and the wider Edfrica ecosystem.",
@@ -147,7 +162,8 @@ export const pillars: Pillar[] = [
       "Home to OGEII, in-person TLab STEAM sessions, and independent members",
     ],
     stat: { value: "Abeokuta", label: "Ogun State, Nigeria" },
-    href: "https://infrastructure.edfrica.org",
+    href: "/hub",
+    external: false,
     tone: "green",
     photo: "/photos/hub-exterior.jpg",
     photoAlt: "The Edfrica Hub building exterior in Sokenu, Abeokuta",
@@ -157,6 +173,7 @@ export const pillars: Pillar[] = [
     number: "05",
     name: "Edfrica Foundation",
     role: "Foundation",
+    navLabel: "Social Enterprise",
     tagline: "CSR & inclusive innovation",
     description:
       "Channels corporate social responsibility and impact investment into inclusive innovation programming across the Edfrica ecosystem.",
@@ -165,7 +182,9 @@ export const pillars: Pillar[] = [
       "Inclusive innovation programming",
     ],
     stat: { value: "CSR", label: "& inclusive innovation" },
+    // Redirects to the Dade Foundation.
     href: "https://foundation.edfrica.org",
+    external: true,
     tone: "indigo",
     photo: "/photos/community-outreach.jpg",
     photoAlt: "Edfrica volunteers and children at a community outreach event",
@@ -176,18 +195,251 @@ export const partnerAudiences: PartnerAudience[] = [
   {
     title: "NGOs & donors",
     body: "Leverage an established network of 5,000+ members and 20,000+ MSMEs without building infrastructure from scratch.",
+    icon: "heart",
+    photo: "/photos/community-outreach.jpg",
+    photoAlt: "Edfrica volunteers and children at a community outreach event",
   },
   {
     title: "Corporates & foundations",
     body: "Channel CSR and impact investment through a trusted, results-driven platform with measurable outcomes.",
+    icon: "briefcase",
+    photo: "/photos/business-consulting.jpg",
+    photoAlt: "An Edfrica consultant leading a business training session",
   },
   {
     title: "Government & public sector",
     body: "Deploy entrepreneurship and STEM mandates at scale through OGEII, with built-in monitoring.",
+    icon: "landmark",
+    photo: "/photos/hub-exterior.jpg",
+    photoAlt: "The Edfrica Hub building exterior in Sokenu, Abeokuta",
   },
   {
     title: "Academic & research institutions",
     body: "Co-create curricula and publish applied research through the Institute.",
+    icon: "graduation",
+    photo: "/photos/digital-platform.jpg",
+    photoAlt: "Hands typing on a laptop displaying the Edfrica platform",
+  },
+];
+
+export type Service = {
+  slug: string;
+  number: string;
+  title: string;
+  descriptor: string;
+  icon: string;
+  body: string;
+  photo: string;
+  photoAlt: string;
+};
+
+/**
+ * Titles and descriptors are verbatim from the corporate profile PDF, page 07
+ * ("Services, delivered end to end"). The longer `body` copy expands each one
+ * from the ESO/ISO capability lists on page 06.
+ */
+export const services: Service[] = [
+  {
+    slug: "business-development",
+    number: "01",
+    title: "Business development",
+    descriptor: "Strategy & operational support for MSMEs",
+    icon: "briefcase",
+    body: "We work alongside founders and management teams on strategy, operating models, and the day-to-day systems that let a small business grow without breaking. Advisory is delivered by consultants drawn from our 200-strong technical bench, matched to the sector and stage of the business.",
+    photo: "/photos/business-consulting.jpg",
+    photoAlt: "An Edfrica consultant leading a business training session",
+  },
+  {
+    slug: "market-assessments",
+    number: "02",
+    title: "Market assessments",
+    descriptor: "Sector & market-entry studies",
+    icon: "chart",
+    body: "Sector mapping, competitive landscape, and market-entry studies for organisations moving into a new country, segment, or product line — grounded in the on-the-ground reach of a 15-country regional network rather than desk research alone.",
+    photo: "/photos/digital-platform.jpg",
+    photoAlt: "Market research data reviewed on a laptop",
+  },
+  {
+    slug: "financial-analysis",
+    number: "03",
+    title: "Financial analysis & modelling",
+    descriptor: "Feasibility studies & forecasting",
+    icon: "chart",
+    body: "Financial models, feasibility studies, and forecasting built to the standard funders and lenders expect — unit economics, scenario analysis, and the assumptions written down where a reviewer can check them.",
+    photo: "/photos/business-consulting.jpg",
+    photoAlt: "Financial documents reviewed during a consulting session",
+  },
+  {
+    slug: "compliance-support",
+    number: "04",
+    title: "Compliance & regulatory support",
+    descriptor: "Registration, licensing, safeguarding",
+    icon: "shield",
+    body: "Company registration, sector licensing, and safeguarding policy design. We run our own programmes against an active safeguarding/SEAH policy, so the guidance we give is the practice we use.",
+    photo: "/photos/business-consulting.jpg",
+    photoAlt: "Compliance paperwork being completed at a desk",
+  },
+  {
+    slug: "access-to-finance",
+    number: "05",
+    title: "Access to finance",
+    descriptor: "Grants, loans & blended finance",
+    icon: "seal",
+    body: "Navigation across grants, loans, and blended-finance instruments — identifying the right facility, preparing the application, and managing the reporting that follows. Over ₦50M in financing facilitated to date.",
+    photo: "/photos/business-consulting.jpg",
+    photoAlt: "A financing discussion between an advisor and a business owner",
+  },
+  {
+    slug: "investment-readiness",
+    number: "06",
+    title: "Investment readiness",
+    descriptor: "Due diligence & capital-raise prep",
+    icon: "star",
+    body: "Getting a business to the point where it survives contact with an investor: data room, due-diligence pack, governance, and the capital-raise narrative — prepared before the first meeting rather than during it.",
+    photo: "/photos/digital-platform.jpg",
+    photoAlt: "An investment readiness working session",
+  },
+  {
+    slug: "cross-border-access",
+    number: "07",
+    title: "Cross-border market access",
+    descriptor: "Trade facilitation across ECOWAS & Sahel",
+    icon: "globe",
+    body: "Trade facilitation and market entry across all 15 ECOWAS and Alliance of Sahel States countries — regulatory navigation, partner identification, and local delivery through our regional network.",
+    photo: "/photos/community-outreach.jpg",
+    photoAlt: "A cross-border trade and partnership meeting",
+  },
+  {
+    slug: "acceleration-incubation",
+    number: "08",
+    title: "Acceleration & incubation",
+    descriptor: "Ideation through to scale",
+    icon: "landmark",
+    body: "Structured incubation and acceleration from ideation through to scale, run out of The Edfrica Hub in Abeokuta — cohort programming, technical mentorship, workspace, and market linkage in one place.",
+    photo: "/photos/hub-exterior.jpg",
+    photoAlt: "The incubation bay at The Edfrica Hub",
+  },
+];
+
+export type TrustSignal = {
+  icon: string;
+  title: string;
+  body: string;
+};
+
+/**
+ * Transcribed from the corporate profile PDF, page 13 ("Compliance &
+ * Credentials"). Registration numbers are reproduced exactly as printed —
+ * re-confirm them against the CAC and FIRS records before launch.
+ */
+export const trustSignals: TrustSignal[] = [
+  {
+    icon: "seal",
+    title: "CAC 8196200",
+    body: "Private company limited by shares, incorporated January 2025",
+  },
+  {
+    icon: "clipboard",
+    title: "TIN 32700849-0001",
+    body: "Tax identification number",
+  },
+  {
+    icon: "shield",
+    title: "SCUML registered",
+    body: "Special Control Unit Against Money Laundering",
+  },
+  {
+    icon: "heart",
+    title: "Safeguarding / SEAH policy",
+    body: "In active use across grant-funded programming",
+  },
+  {
+    icon: "compass",
+    title: "AREM delivery framework",
+    body: "Awareness, Responsibility, Engagement, Mobilization",
+  },
+  {
+    icon: "chart",
+    title: "Monitoring & Evaluation",
+    body: "Logic frameworks built into every programme design",
+  },
+];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  org: string;
+};
+
+/**
+ * PLACEHOLDER — every quote below must be replaced with an approved,
+ * attributable statement from a real partner before this site goes live.
+ * Nothing here is a real quotation and no real organisation is named.
+ */
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "TODO — replace with an approved quote from a government partner.",
+    name: "Name to be confirmed",
+    role: "Role to be confirmed",
+    org: "Government agency partner",
+  },
+  {
+    quote: "TODO — replace with an approved quote from a donor partner.",
+    name: "Name to be confirmed",
+    role: "Role to be confirmed",
+    org: "Donor partner",
+  },
+  {
+    quote:
+      "TODO — replace with an approved quote from a programme beneficiary.",
+    name: "Name to be confirmed",
+    role: "Role to be confirmed",
+    org: "MSME programme beneficiary",
+  },
+];
+
+export type Insight = {
+  title: string;
+  excerpt: string;
+  category: string;
+  href: string;
+  photo: string;
+  photoAlt: string;
+};
+
+/**
+ * PLACEHOLDER titles and excerpts — replace with real headlines pulled from
+ * media.edfrica.org before launch. The `href` destination is real.
+ */
+export const insights: Insight[] = [
+  {
+    title: "TODO — replace with a real headline from Edfrica Media",
+    excerpt:
+      "Placeholder excerpt. Swap this card's copy for a live article once the media feed is wired up.",
+    category: "Funding",
+    href: "https://media.edfrica.org",
+    photo: "/photos/digital-platform.jpg",
+    photoAlt: "The Edfrica media platform open on a laptop",
+  },
+  {
+    title: "TODO — replace with a real headline from Edfrica Media",
+    excerpt:
+      "Placeholder excerpt. Swap this card's copy for a live article once the media feed is wired up.",
+    category: "Enterprise",
+    href: "https://media.edfrica.org",
+    photo: "/photos/business-consulting.jpg",
+    photoAlt: "An Edfrica business advisory session",
+  },
+  {
+    title: "TODO — replace with a real headline from Edfrica Media",
+    excerpt:
+      "Placeholder excerpt. Swap this card's copy for a live article once the media feed is wired up.",
+    category: "STEAM",
+    href: "https://media.edfrica.org",
+    photo: "/photos/robotics-workshop.jpg",
+    photoAlt: "A student-built robotics project from a TLab STEAM session",
   },
 ];
 
@@ -231,6 +483,10 @@ export const tlabRanks: string[] = [
   "Creator",
   "Master Inventor",
 ];
+
+/** Corporate profile PDF, page 06 — "Why EIIE exists". */
+export const whyEiieExists =
+  "Nigeria's entrepreneurship and innovation landscape is split between institutions with grassroots reach but no technical depth, and consultancies with technical depth but no last-mile presence. EIIE was built to be both at once — carrying a community network of 5,000+ members and 20,000+ MSMEs into the room, backed by delivery standards drawn from World Bank/ECOWAS, GIZ, and GOPA-managed programmes.";
 
 export const esoServices: string[] = [
   "Business development & MSME advisory",
@@ -292,11 +548,136 @@ export const teamComposition = {
   pwdPercent: 10,
 };
 
+export type HubFacility = {
+  name: string;
+  descriptor: string;
+  icon: string;
+};
+
+/** Facilities and occupants are from the corporate profile PDF, page 09. */
+export const hubFacilities: HubFacility[] = [
+  {
+    name: "Co-working floor",
+    descriptor: "Daily & monthly desks",
+    icon: "briefcase",
+  },
+  {
+    name: "Training rooms",
+    descriptor: "Workshops & bootcamps",
+    icon: "graduation",
+  },
+  {
+    name: "Event & multipurpose hall",
+    descriptor: "Conferences & demo days",
+    icon: "megaphone",
+  },
+  {
+    name: "Incubation bay",
+    descriptor: "Active venture support",
+    icon: "star",
+  },
+];
+
+export const hubOccupants: HubFacility[] = [
+  {
+    name: "OGEII",
+    descriptor: "Ogun chapter of the Edfrica Institute, headquartered here",
+    icon: "landmark",
+  },
+  {
+    name: "TLab",
+    descriptor: "In-person STEAM sessions for hub-based learners",
+    icon: "graduation",
+  },
+  {
+    name: "Independent members",
+    descriptor: "Entrepreneurs, consultants & startups on flexible plans",
+    icon: "person",
+  },
+];
+
+export type HubPricingTier = {
+  name: string;
+  unit: string;
+  price: string;
+  includes: string[];
+  featured?: boolean;
+};
+
+/**
+ * PLACEHOLDER PRICING — no rates exist in the corporate profile or anywhere
+ * else in this repo. Every `price` below is a deliberate TODO. Replace with
+ * the real rate card before launch; do not publish invented figures.
+ */
+export const hubPricing: HubPricingTier[] = [
+  {
+    name: "Day pass",
+    unit: "per day",
+    price: "TODO",
+    includes: [
+      "Hot desk on the co-working floor",
+      "Power & internet",
+      "Shared meeting-room access",
+    ],
+  },
+  {
+    name: "Monthly desk",
+    unit: "per month",
+    price: "TODO",
+    includes: [
+      "Dedicated desk",
+      "Power & internet",
+      "Meeting-room hours included",
+      "Mail handling",
+    ],
+    featured: true,
+  },
+  {
+    name: "Training room",
+    unit: "per session",
+    price: "TODO",
+    includes: [
+      "Room set up for workshops & bootcamps",
+      "Projector & whiteboard",
+      "Technician on site",
+    ],
+  },
+  {
+    name: "Event hall",
+    unit: "per day",
+    price: "TODO",
+    includes: [
+      "Multipurpose hall for conferences & demo days",
+      "AV and seating setup",
+      "On-site support",
+    ],
+  },
+];
+
 export const contact = {
   email: "contact@edfrica.org",
   phones: ["+234 806 674 9933", "+234 808 485 2235"],
   location: "Abeokuta, Ogun State, Nigeria",
+  offices: [
+    {
+      city: "Abeokuta",
+      address: "Sokenu, off Nawairudeen Road, Abeokuta South LGA, Ogun State",
+    },
+  ],
 };
+
+/**
+ * No real Edfrica social profiles have been supplied yet. The footer renders
+ * an icon only when its URL is present, so this stays empty rather than
+ * shipping dead links.
+ */
+export const orgSocials: SocialLinks = {};
+
+export const companyNav = [
+  { label: "Mission, Vision & Values", href: "/about#mission-vision" },
+  { label: "Leadership", href: "/team" },
+  { label: "Impact", href: "/about#impact" },
+];
 
 export const footerNav = {
   company: [
@@ -305,6 +686,13 @@ export const footerNav = {
     { label: "Team", href: "/team" },
     { label: "Partner With Us", href: "/partner" },
     { label: "Contact", href: "/contact" },
+  ],
+  explore: [
+    { label: "Services", href: "/services" },
+    { label: "The Hub", href: "/hub" },
+    { label: "The Institute", href: "/institute" },
+    { label: "Who we serve", href: "/#who-we-serve" },
+    { label: "Insights", href: "/#insights" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },

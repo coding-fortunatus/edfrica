@@ -29,7 +29,7 @@ export function OrganizationSchema() {
       "@type": "Organization",
       name: pillar.name,
       description: pillar.description,
-      url: pillar.href,
+      url: pillar.external ? pillar.href : `https://edfrica.org${pillar.href}`,
     })),
   };
 

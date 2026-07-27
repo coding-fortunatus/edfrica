@@ -50,7 +50,7 @@ export function PillarDeepDive({
         </Chip>
       </div>
       <div className="mt-7">
-        <Button href={pillar.href} external variant="primary">
+        <Button href={pillar.href} external={pillar.external} variant="primary">
           Visit {pillar.name}
           <ArrowRightIcon />
         </Button>
