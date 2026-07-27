@@ -697,7 +697,9 @@ export const footerNav = {
     { label: "The Hub", href: "/hub" },
     { label: "The Institute", href: "/institute" },
     { label: "Who we serve", href: "/#who-we-serve" },
-    { label: "Insights", href: "/#insights" },
+    // Restore once the homepage Insights section is re-enabled — the anchor
+    // is dead while that section is commented out in app/page.tsx.
+    // { label: "Insights", href: "/#insights" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },

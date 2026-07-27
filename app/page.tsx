@@ -4,8 +4,10 @@ import { WhoWeServe } from "@/components/WhoWeServe";
 import { WhatWeDo } from "@/components/WhatWeDo";
 import { TrustSignals } from "@/components/TrustSignals";
 import { TalentPipeline } from "@/components/TalentPipeline";
-import { Insights } from "@/components/Insights";
 import { ClosingCta } from "@/components/ClosingCta";
+// Insights is built and ready — re-enable once real articles are available.
+// See components/Insights.tsx and the `insights` array in lib/content.ts.
+// import { Insights } from "@/components/Insights";
 
 export default function Home() {
   return (
@@ -16,7 +18,7 @@ export default function Home() {
       <WhatWeDo />
       <TrustSignals />
       <TalentPipeline />
-      <Insights />
+      {/* <Insights /> */}
       <ClosingCta />
     </>
   );
