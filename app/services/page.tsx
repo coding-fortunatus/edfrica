@@ -4,6 +4,7 @@ import { services } from "@/lib/content";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Button } from "@/components/ui/Button";
 import { getIcon } from "@/components/iconRegistry";
+import { Pattern } from "@/components/Pattern";
 import { ArrowRightIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
@@ -16,8 +17,9 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-paper pt-16 pb-10">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-paper pt-16 pb-10">
+        <Pattern variant="grid" tone="light" anchor="right" />
+        <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Our services
           </p>

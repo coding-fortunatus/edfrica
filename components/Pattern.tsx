@@ -126,14 +126,14 @@ const specs: Record<PatternVariant, Spec> = {
 };
 
 const fades: Record<NonNullable<PatternProps["anchor"]>, string> = {
-  top: "radialaimed(ellipse 100% 100% at 50% 15%)",
-  center: "radial-gradient(ellipse 85% 85% at 50% 50%, black 35%, transparent 78%)",
-  bottom: "radial-gradient(ellipse 100% 90% at 50% 100%, black 25%, transparent 80%)",
-  right: "radial-gradient(ellipse 70% 90% at 100% 50%, black 20%, transparent 78%)",
+  top: "radial-gradient(ellipse 100% 100% at 50% 15%, black 45%, transparent 88%)",
+  center:
+    "radial-gradient(ellipse 85% 85% at 50% 50%, black 35%, transparent 78%)",
+  bottom:
+    "radial-gradient(ellipse 100% 90% at 50% 100%, black 25%, transparent 80%)",
+  right:
+    "radial-gradient(ellipse 70% 90% at 100% 50%, black 20%, transparent 78%)",
 };
-// `top` written out separately to keep the long gradient readable.
-fades.top =
-  "radial-gradient(ellipse 100% 100% at 50% 15%, black 45%, transparent 88%)";
 
 export function Pattern({
   variant,
@@ -147,6 +147,7 @@ export function Pattern({
   return (
     <div
       aria-hidden="true"
+      data-pattern={variant}
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
       style={{
         maskImage: fade,

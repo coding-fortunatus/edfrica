@@ -1,7 +1,7 @@
 import { services } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { ArrowRightIcon } from "@/components/icons";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import { ServiceCarousel } from "@/components/ServiceCarousel";
 
 export function WhatWeDo() {
@@ -10,7 +10,7 @@ export function WhatWeDo() {
       id="what-we-do"
       className="relative scroll-mt-24 overflow-hidden bg-parchment/50 py-24"
     >
-      <AmbientBackdrop tone="light" />
+      <Pattern variant="diagonals" tone="light" anchor="top" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">

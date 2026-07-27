@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/Button";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 
 export function ClosingCta() {
   return (
     <section className="relative overflow-hidden bg-indigo-soft py-20 text-white">
-      <AmbientBackdrop tone="dark" />
+      <Pattern variant="chevron" tone="dark" anchor="center" />
       <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
         <h2 className="font-display text-3xl font-semibold sm:text-4xl">
           Let&rsquo;s build the next chapter together

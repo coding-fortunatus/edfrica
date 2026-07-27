@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import { StatsRow } from "@/components/StatsBar";
 import { ExternalLinkIcon } from "@/components/icons";
 import { tlabRanks, type Stat } from "@/lib/content";
@@ -16,7 +16,7 @@ export function TalentPipeline() {
       id="talent"
       className="relative scroll-mt-24 overflow-hidden bg-indigo py-24 text-white"
     >
-      <AmbientBackdrop tone="dark" />
+      <Pattern variant="arcs" tone="dark" anchor="bottom" />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-green/10 blur-3xl"

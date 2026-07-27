@@ -9,7 +9,7 @@ import {
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import { getIcon } from "@/components/iconRegistry";
 import { ArrowRightIcon, CheckIcon, MapPinIcon } from "@/components/icons";
 
@@ -26,7 +26,7 @@ export default function HubPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-indigo text-white">
-        <AmbientBackdrop tone="dark" />
+        <Pattern variant="waves" tone="dark" anchor="right" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
             <div>

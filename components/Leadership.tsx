@@ -5,7 +5,7 @@ import {
   type SocialLinks,
 } from "@/lib/content";
 import { AvatarPlaceholder } from "@/components/AvatarPlaceholder";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import {
   LinkedinIcon,
   TwitterIcon,
@@ -85,7 +85,7 @@ function SocialRow({ social }: { social: SocialLinks }) {
 export function Leadership() {
   return (
     <section className="relative overflow-hidden bg-paper py-20">
-      <AmbientBackdrop tone="light" />
+      <Pattern variant="grid" tone="light" anchor="top" />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
           Leadership

@@ -1,7 +1,7 @@
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { partnerAudiences, whyPartner, contact } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import {
   HeartIcon,
   BriefcaseIcon,
@@ -20,7 +20,7 @@ export function PartnerWith() {
   return (
     <>
       <section className="relative overflow-hidden bg-paper pt-16 pb-16">
-        <AmbientBackdrop tone="light" />
+        <Pattern variant="triangles" tone="light" anchor="right" />
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>

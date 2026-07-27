@@ -1,12 +1,12 @@
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { missionVision } from "@/lib/content";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import { CompassIcon, StarIcon } from "@/components/icons";
 
 export function WhoWeAre() {
   return (
     <section className="relative overflow-hidden bg-paper pt-16 pb-20">
-      <AmbientBackdrop tone="light" />
+      <Pattern variant="dots" tone="light" anchor="top" />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>

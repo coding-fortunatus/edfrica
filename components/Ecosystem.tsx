@@ -1,6 +1,6 @@
 import { pillars, type Pillar } from "@/lib/content";
 import { ArrowRightIcon, ExternalLinkIcon } from "@/components/icons";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/iconRegistry";
@@ -107,7 +107,7 @@ export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
       id="ecosystem"
       className="relative scroll-mt-24 overflow-hidden bg-paper py-24"
     >
-      <AmbientBackdrop tone="light" />
+      <Pattern variant="weave" tone="light" anchor="right" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">

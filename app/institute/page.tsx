@@ -4,7 +4,7 @@ import { pillars, services, whyEiieExists } from "@/lib/content";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { Pattern } from "@/components/Pattern";
 import { EsoIsoSplit } from "@/components/EsoIsoSplit";
 import { RegionalNetworkGrid } from "@/components/RegionalNetworkGrid";
 import { getIcon } from "@/components/iconRegistry";
@@ -23,7 +23,7 @@ export default function InstitutePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-indigo text-white">
-        <AmbientBackdrop tone="dark" />
+        <Pattern variant="crosshatch" tone="dark" anchor="right" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
             <div>

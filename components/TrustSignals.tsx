@@ -1,5 +1,6 @@
 import { trustSignals } from "@/lib/content";
 import { getIcon } from "@/components/iconRegistry";
+import { Pattern } from "@/components/Pattern";
 
 export function TrustSignals() {
   return (
@@ -7,19 +8,12 @@ export function TrustSignals() {
       id="trust"
       className="relative scroll-mt-24 overflow-hidden border-y border-ink/10 bg-parchment/40 py-24"
     >
-      {/* Decorative dot field, echoing the reference layout's right-hand mark. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, color-mix(in srgb, var(--ink) 22%, transparent) 1.5px, transparent 1.5px)",
-          backgroundSize: "22px 22px",
-          maskImage:
-            "radial-gradient(ellipse 70% 55% at 75% 50%, #000 30%, transparent 75%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 70% 55% at 75% 50%, #000 30%, transparent 75%)",
-        }}
+      {/* Contour lines on the right, echoing the reference layout's mark. */}
+      <Pattern
+        variant="contour"
+        tone="light"
+        anchor="right"
+        className="hidden lg:block"
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
