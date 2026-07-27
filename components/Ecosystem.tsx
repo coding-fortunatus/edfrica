@@ -1,41 +1,25 @@
 import { pillars, type Pillar } from "@/lib/content";
-import {
-  ArrowRightIcon,
-  MegaphoneIcon,
-  LandmarkIcon,
-  GraduationCapIcon,
-  Building2Icon,
-  GlobeIcon,
-} from "@/components/icons";
+import { ArrowRightIcon, ExternalLinkIcon } from "@/components/icons";
 import { AmbientBackdrop } from "@/components/AmbientBackdrop";
-import { AnnotationTag } from "@/components/AnnotationTag";
-import { SketchArrow } from "@/components/SketchArrow";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/iconRegistry";
 
-const toneClasses: Record<Pillar["tone"], string> = {
-  green: "border-green-deep/15 bg-mint text-ink",
-  indigo: "border-white/10 bg-indigo text-white",
-  parchment: "border-ink/10 bg-parchment text-ink",
+const pillarIcons: Record<string, string> = {
+  media: "megaphone",
+  institute: "landmark",
+  education: "graduation",
+  infrastructure: "building",
+  foundation: "globe",
 };
 
-const badgeClasses: Record<Pillar["tone"], string> = {
-  green: "bg-green-deep text-white",
-  indigo: "bg-white/15 text-green",
-  parchment: "bg-indigo text-white",
+const accent: Record<Pillar["tone"], string> = {
+  green: "bg-green-deep",
+  indigo: "bg-indigo",
+  parchment: "bg-green-deep",
 };
 
-const pillarIcons: Record<string, typeof MegaphoneIcon> = {
-  media: MegaphoneIcon,
-  institute: LandmarkIcon,
-  education: GraduationCapIcon,
-  infrastructure: Building2Icon,
-  foundation: GlobeIcon,
-};
-
-function GatewayCard({ pillar }: { pillar: Pillar }) {
-  const Icon = pillarIcons[pillar.id] ?? MegaphoneIcon;
-  const className = `group relative flex h-full flex-col overflow-hidden rounded-t-[2.25rem] rounded-b-xl border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${toneClasses[pillar.tone]}`;
-
+function PillarCard({ pillar, wide = false }: { pillar: Pillar; wide?: boolean }) {
   const externalProps = pillar.external
     ? {
         target: "_blank",
@@ -45,42 +29,66 @@ function GatewayCard({ pillar }: { pillar: Pillar }) {
     : { "aria-label": `Visit ${pillar.name}` };
 
   return (
-    <a href={pillar.href} className={className} {...externalProps}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-x-6 top-0 h-1.5 rounded-b-full bg-green-deep"
-      />
-
-      <div className="flex items-start justify-between">
+    <a
+      href={pillar.href}
+      {...externalProps}
+      className={`group relative flex overflow-hidden rounded-3xl border border-ink/10 bg-paper transition-all duration-300 hover:-translate-y-1.5 hover:border-green-deep/30 hover:shadow-[0_28px_60px_-28px_rgba(22,17,75,0.45)] ${
+        wide ? "flex-col sm:flex-row" : "flex-col"
+      }`}
+    >
+      {/* Contained image panel — full-bleed to the card edge, never floating. */}
+      <div
+        className={`relative shrink-0 overflow-hidden ${
+          wide ? "aspect-video sm:aspect-auto sm:w-2/5" : "aspect-video"
+        }`}
+      >
+        <ImageWithSkeleton
+          src={pillar.photo}
+          alt={pillar.photoAlt}
+          fill
+          sizes={wide ? "(min-width: 640px) 20vw, 90vw" : "(min-width: 1024px) 30vw, 90vw"}
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-indigo/25 transition-opacity duration-500 group-hover:opacity-0"
+        />
         <span
-          className={`flex h-12 w-12 items-center justify-center rounded-2xl ${badgeClasses[pillar.tone]}`}
+          aria-hidden="true"
+          className={`absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-lg ${accent[pillar.tone]}`}
         >
-          <Icon className="h-6 w-6" />
-        </span>
-        <span className="font-mono text-[11px] opacity-40">
-          {pillar.number}
+          <Icon name={pillarIcons[pillar.id] ?? "megaphone"} className="h-5 w-5" />
         </span>
       </div>
 
-      <h3 className="mt-5 font-display text-xl font-semibold">{pillar.role}</h3>
-      <p className="mt-2 text-sm leading-relaxed opacity-80">
-        {pillar.tagline}
-      </p>
+      <div className="flex flex-1 flex-col p-6">
+        <p className="font-mono text-[11px] tracking-[0.16em] text-green-deep uppercase">
+          {pillar.role}
+        </p>
+        <h3 className="mt-2 font-display text-xl leading-tight font-semibold text-ink">
+          {pillar.navLabel}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink/60">
+          {pillar.tagline}
+        </p>
 
-      <div className="mt-auto flex items-end justify-between pt-6">
-        <div>
-          <p className="font-mono text-lg font-semibold">{pillar.stat.value}</p>
-          <p className="text-[11px] opacity-60">{pillar.stat.label}</p>
+        <div className="mt-auto flex items-end justify-between gap-4 border-t border-ink/8 pt-5">
+          <div className="min-w-0">
+            <p className="font-mono text-base font-semibold text-indigo">
+              {pillar.stat.value}
+            </p>
+            <p className="truncate text-[11px] text-ink/50">
+              {pillar.stat.label}
+            </p>
+          </div>
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink/60 transition-all duration-300 group-hover:border-green-deep group-hover:bg-green-deep group-hover:text-white">
+            {pillar.external ? (
+              <ExternalLinkIcon className="h-3.5 w-3.5" />
+            ) : (
+              <ArrowRightIcon className="h-3.5 w-3.5" />
+            )}
+          </span>
         </div>
-        <span
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-transform duration-300 group-hover:translate-x-0.5 ${
-            pillar.tone === "indigo"
-              ? "border-white/25 text-white/85"
-              : "border-ink/15 text-ink/70"
-          }`}
-        >
-          <ArrowRightIcon className="h-3.5 w-3.5" />
-        </span>
       </div>
     </a>
   );
@@ -91,6 +99,9 @@ type EcosystemProps = {
 };
 
 export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
+  const topRow = pillars.slice(0, 3);
+  const bottomRow = pillars.slice(3);
+
   return (
     <section
       id="ecosystem"
@@ -99,46 +110,39 @@ export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
       <AmbientBackdrop tone="light" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
-          The Ecosystem
-        </p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
-          Five pillars, one Edfrica
-        </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
-          Each pillar is its own destination with its own team and roadmap. Step
-          through to explore.
-        </p>
-
-        <div className="relative mt-12">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-16 right-4 z-10 hidden flex-col items-end gap-1 lg:flex"
-          >
-            <AnnotationTag tone="green" rotate="right">
-              5 live destinations
-            </AnnotationTag>
-            <SketchArrow
-              variant="toGrid"
-              className="h-12 w-12 text-green-deep"
-            />
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
+              The Ecosystem
+            </p>
+            <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
+              Five pillars, one Edfrica
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
+              Each pillar is its own destination with its own team and roadmap.
+              Step through to explore.
+            </p>
           </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {pillars.map((pillar) => (
-              <GatewayCard key={pillar.id} pillar={pillar} />
-            ))}
-          </div>
-        </div>
-
-        {showDeepDiveLink && (
-          <div className="mt-10">
+          {showDeepDiveLink && (
             <Button href="/ecosystem" variant="secondary">
               See what&rsquo;s inside each pillar
               <ArrowRightIcon />
             </Button>
+          )}
+        </div>
+
+        <div className="mt-12 flex flex-col gap-6">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {topRow.map((pillar) => (
+              <PillarCard key={pillar.id} pillar={pillar} />
+            ))}
           </div>
-        )}
+          <div className="grid gap-6 lg:grid-cols-2">
+            {bottomRow.map((pillar) => (
+              <PillarCard key={pillar.id} pillar={pillar} wide />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -328,21 +328,11 @@ export type TrustSignal = {
 };
 
 /**
- * Transcribed from the corporate profile PDF, page 13 ("Compliance &
- * Credentials"). Registration numbers are reproduced exactly as printed —
- * re-confirm them against the CAC and FIRS records before launch.
+ * From the corporate profile PDF, page 13 ("Compliance & Credentials"). The
+ * CAC and TIN registration numbers on that page are deliberately not surfaced
+ * here — they belong on request, not on the marketing site.
  */
 export const trustSignals: TrustSignal[] = [
-  {
-    icon: "seal",
-    title: "CAC 8196200",
-    body: "Private company limited by shares, incorporated January 2025",
-  },
-  {
-    icon: "clipboard",
-    title: "TIN 32700849-0001",
-    body: "Tax identification number",
-  },
   {
     icon: "shield",
     title: "SCUML registered",
@@ -674,9 +664,24 @@ export const contact = {
 export const orgSocials: SocialLinks = {};
 
 export const companyNav = [
-  { label: "Mission, Vision & Values", href: "/about#mission-vision" },
-  { label: "Leadership", href: "/team" },
-  { label: "Impact", href: "/about#impact" },
+  {
+    label: "Mission, Vision & Values",
+    href: "/about#mission-vision",
+    description: "What we're building and why",
+    icon: "compass",
+  },
+  {
+    label: "Leadership",
+    href: "/team",
+    description: "The team behind the ecosystem",
+    icon: "person",
+  },
+  {
+    label: "Impact",
+    href: "/about#impact",
+    description: "Reach, results and credentials",
+    icon: "chart",
+  },
 ];
 
 export const footerNav = {

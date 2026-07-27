@@ -42,3 +42,50 @@ const icons = {
 export function getIcon(name: string) {
   return icons[name as keyof typeof icons] ?? StarIcon;
 }
+
+/**
+ * Render-safe wrapper for cases where the icon is resolved in a component
+ * body rather than inside a `.map` callback. Dispatches explicitly rather
+ * than assigning a component to a local, which the lint rule reads as
+ * declaring a component during render.
+ */
+export function Icon({
+  name,
+  className,
+}: {
+  name: string;
+  className?: string;
+}) {
+  switch (name) {
+    case "briefcase":
+      return <BriefcaseIcon className={className} />;
+    case "building":
+      return <Building2Icon className={className} />;
+    case "chart":
+      return <ChartIcon className={className} />;
+    case "clipboard":
+      return <ClipboardIcon className={className} />;
+    case "compass":
+      return <CompassIcon className={className} />;
+    case "globe":
+      return <GlobeIcon className={className} />;
+    case "graduation":
+      return <GraduationCapIcon className={className} />;
+    case "heart":
+      return <HeartIcon className={className} />;
+    case "landmark":
+      return <LandmarkIcon className={className} />;
+    case "mapPin":
+      return <MapPinIcon className={className} />;
+    case "megaphone":
+      return <MegaphoneIcon className={className} />;
+    case "person":
+      return <PersonIcon className={className} />;
+    case "seal":
+      return <SealIcon className={className} />;
+    case "shield":
+      return <ShieldIcon className={className} />;
+    default:
+      return <StarIcon className={className} />;
+  }
+}
