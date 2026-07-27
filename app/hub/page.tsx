@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   contact,
   hubFacilities,
@@ -12,19 +11,46 @@ import { Chip } from "@/components/ui/Chip";
 import { Pattern } from "@/components/Pattern";
 import { getIcon } from "@/components/iconRegistry";
 import { ArrowRightIcon, CheckIcon, MapPinIcon } from "@/components/icons";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbNode, graph, hubPlaceNode, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
 const hub = pillars.find((pillar) => pillar.id === "infrastructure")!;
 
-export const metadata: Metadata = {
-  title: "The Edfrica Hub",
-  description:
-    "A co-working, training, and event space in Sokenu, Abeokuta South LGA, Ogun State — co-working desks, training rooms, an event hall, and an incubation bay. Home to OGEII and the wider Edfrica ecosystem.",
-  alternates: { canonical: "/hub" },
-};
+const path = "/hub";
+const title = "The Edfrica Hub";
+const description =
+  "A co-working, training, and event space in Sokenu, Abeokuta South LGA, Ogun State — co-working desks, training rooms, an event hall, and an incubation bay. Home to OGEII and the wider Edfrica ecosystem.";
+
+export const metadata = buildMetadata({
+  title,
+  description,
+  path,
+  socialTitle: "The Edfrica Hub, Abeokuta",
+  keywords: [
+    "co-working space Abeokuta",
+    "innovation hub Ogun State",
+    "training room hire Abeokuta",
+    "event hall Abeokuta",
+    "startup incubation Nigeria",
+  ],
+});
+
+const crumbs = [
+  { name: "Ecosystem", path: "/ecosystem" },
+  { name: "The Hub", path },
+];
 
 export default function HubPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+          hubPlaceNode(),
+        ])}
+      />
       <section className="relative overflow-hidden bg-indigo text-white">
         <Pattern variant="waves" tone="dark" anchor="right" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">

@@ -1,12 +1,17 @@
-import type { Metadata } from "next";
 import { LegalPageLayout, type LegalSection } from "@/components/LegalPageLayout";
 import { contact, orgName } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Safeguarding & Child Protection Policy",
-  description: "Edfrica's commitment to safeguarding, including child protection on TLab.",
-  alternates: { canonical: "/safeguarding-policy" },
-};
+const path = "/safeguarding-policy";
+const title = "Safeguarding & Child Protection Policy";
+const description =
+  "Edfrica's commitment to safeguarding, including child protection on TLab.";
+
+export const metadata = buildMetadata({ title, description, path });
+
+const crumbs = [{ name: title, path }];
 
 const sections: LegalSection[] = [
   {
@@ -113,11 +118,19 @@ const sections: LegalSection[] = [
 
 export default function SafeguardingPolicyPage() {
   return (
-    <LegalPageLayout
-      title="Safeguarding & Child Protection Policy"
-      lastUpdated="July 2026"
-      intro="Our commitment to protecting children and vulnerable participants across every Edfrica programme, with particular focus on TLab's young learners."
-      sections={sections}
-    />
+    <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+        ])}
+      />
+      <LegalPageLayout
+        title="Safeguarding & Child Protection Policy"
+        lastUpdated="July 2026"
+        intro="Our commitment to protecting children and vulnerable participants across every Edfrica programme, with particular focus on TLab's young learners."
+        sections={sections}
+      />
+    </>
   );
 }

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { services } from "@/lib/content";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
@@ -6,17 +5,45 @@ import { Button } from "@/components/ui/Button";
 import { getIcon } from "@/components/iconRegistry";
 import { Pattern } from "@/components/Pattern";
 import { ArrowRightIcon } from "@/components/icons";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  breadcrumbNode,
+  graph,
+  serviceListNode,
+  webPageNode,
+} from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Our Services",
-  description:
-    "Business development, market assessments, financial modelling, compliance, access to finance, investment readiness, cross-border market access, and acceleration — delivered end to end by the Edfrica Institute.",
-  alternates: { canonical: "/services" },
-};
+const path = "/services";
+const title = "Our Services";
+const description =
+  "Business development, market assessments, financial modelling, compliance, access to finance, investment readiness, cross-border market access, and acceleration — delivered end to end by the Edfrica Institute.";
+
+export const metadata = buildMetadata({
+  title,
+  description,
+  path,
+  socialTitle: "Services, delivered end to end",
+});
+
+const crumbs = [{ name: "Services", path }];
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageNode({
+            path,
+            name: title,
+            description,
+            type: "CollectionPage",
+            crumbs,
+          }),
+          breadcrumbNode(crumbs),
+          serviceListNode(),
+        ])}
+      />
       <section className="relative overflow-hidden bg-paper pt-16 pb-10">
         <Pattern variant="grid" tone="light" anchor="right" />
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8">

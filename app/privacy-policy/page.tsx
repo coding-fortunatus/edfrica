@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, type LegalSection } from "@/components/LegalPageLayout";
 import { contact, orgName } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "How Edfrica Solutions Limited collects, uses, and protects personal data.",
-  alternates: { canonical: "/privacy-policy" },
-};
+const path = "/privacy-policy";
+const title = "Privacy Policy";
+const description =
+  "How Edfrica Solutions Limited collects, uses, and protects personal data.";
+
+export const metadata = buildMetadata({ title, description, path });
+
+const crumbs = [{ name: title, path }];
 
 const sections: LegalSection[] = [
   {
@@ -241,11 +246,19 @@ const sections: LegalSection[] = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout
-      title="Privacy Policy"
-      lastUpdated="July 2026"
-      intro="This policy explains what personal data Edfrica collects across its media, institute, education, infrastructure, and foundation platforms, why we collect it, and the choices and rights available to you."
-      sections={sections}
-    />
+    <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+        ])}
+      />
+      <LegalPageLayout
+        title="Privacy Policy"
+        lastUpdated="July 2026"
+        intro="This policy explains what personal data Edfrica collects across its media, institute, education, infrastructure, and foundation platforms, why we collect it, and the choices and rights available to you."
+        sections={sections}
+      />
+    </>
   );
 }

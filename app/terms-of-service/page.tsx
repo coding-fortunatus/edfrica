@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, type LegalSection } from "@/components/LegalPageLayout";
 import { contact, orgName, pillars } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "The terms governing use of Edfrica's platforms and services.",
-  alternates: { canonical: "/terms-of-service" },
-};
+const path = "/terms-of-service";
+const title = "Terms of Service";
+const description =
+  "The terms governing use of Edfrica's platforms and services.";
+
+export const metadata = buildMetadata({ title, description, path });
+
+const crumbs = [{ name: title, path }];
 
 const sections: LegalSection[] = [
   {
@@ -185,11 +190,19 @@ const sections: LegalSection[] = [
 
 export default function TermsOfServicePage() {
   return (
-    <LegalPageLayout
-      title="Terms of Service"
-      lastUpdated="July 2026"
-      intro="These terms govern your use of edfrica.org and the affiliated Institute, Education, Infrastructure, and Foundation platforms."
-      sections={sections}
-    />
+    <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+        ])}
+      />
+      <LegalPageLayout
+        title="Terms of Service"
+        lastUpdated="July 2026"
+        intro="These terms govern your use of edfrica.org and the affiliated Institute, Education, Infrastructure, and Foundation platforms."
+        sections={sections}
+      />
+    </>
   );
 }

@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, type LegalSection } from "@/components/LegalPageLayout";
 import { contact, orgName } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Data Protection Policy",
-  description: "Edfrica's data protection commitments under Nigeria's Data Protection Act.",
-  alternates: { canonical: "/data-protection-policy" },
-};
+const path = "/data-protection-policy";
+const title = "Data Protection Policy";
+const description =
+  "Edfrica's data protection commitments under Nigeria's Data Protection Act.";
+
+export const metadata = buildMetadata({ title, description, path });
+
+const crumbs = [{ name: title, path }];
 
 const sections: LegalSection[] = [
   {
@@ -130,11 +135,19 @@ const sections: LegalSection[] = [
 
 export default function DataProtectionPolicyPage() {
   return (
-    <LegalPageLayout
-      title="Data Protection Policy"
-      lastUpdated="July 2026"
-      intro="How Edfrica Solutions Limited meets its data protection obligations under Nigeria's Data Protection Act 2023."
-      sections={sections}
-    />
+    <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+        ])}
+      />
+      <LegalPageLayout
+        title="Data Protection Policy"
+        lastUpdated="July 2026"
+        intro="How Edfrica Solutions Limited meets its data protection obligations under Nigeria's Data Protection Act 2023."
+        sections={sections}
+      />
+    </>
   );
 }

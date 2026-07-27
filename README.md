@@ -20,6 +20,48 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## SEO
+
+Everything search- and social-facing is driven from two files:
+
+- `lib/seo.ts` — the site origin plus `buildMetadata()`, which every page calls
+  to produce its title, description, canonical, Open Graph and Twitter blocks.
+  Next.js does **not** merge `openGraph` across segments, so a page that skips
+  the helper silently inherits the homepage's social card.
+- `lib/schema.ts` — the JSON-LD entity graph. The organisation and website
+  nodes are emitted once in the root layout; each page adds its own nodes
+  (`WebPage`, `BreadcrumbList`, and page-specific ones) referencing them by
+  `@id`.
+
+Social cards are generated at build time from `lib/og.tsx`; each route's
+`opengraph-image.tsx` supplies the copy. Add one whenever you add a route —
+without it, the route falls back to the site-wide card.
+
+`app/sitemap.ts` carries a hand-maintained `lastContentUpdate` date. Bump it
+when marketing copy changes materially, and add the route to `primaryRoutes`
+when you add a page.
+
+### Environment
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Public origin used for canonicals, sitemap, OG URLs and JSON-LD. Defaults to `https://edfrica.org`. Set it on preview deployments so they don't emit production canonicals. |
+
+Non-production Vercel deployments serve a `Disallow: /` robots.txt
+automatically, keyed off `VERCEL_ENV`.
+
+### Launch checklist
+
+- [ ] Verify the domain in Google Search Console and Bing Webmaster Tools, then
+      submit `https://edfrica.org/sitemap.xml`.
+- [ ] Populate `orgSocials` in `lib/content.ts` — those URLs become the
+      `sameAs` array, which is how search engines confirm the entity.
+- [ ] Replace the placeholder testimonials and Hub pricing in `lib/content.ts`.
+      No review or offer schema is emitted while they are placeholders, on
+      purpose.
+- [ ] Run the live URLs through the
+      [Rich Results Test](https://search.google.com/test/rich-results).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

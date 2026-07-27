@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, type LegalSection } from "@/components/LegalPageLayout";
 import { orgName } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy",
-  description: "How Edfrica uses cookies and similar technologies.",
-  alternates: { canonical: "/cookie-policy" },
-};
+const path = "/cookie-policy";
+const title = "Cookie Policy";
+const description =
+  "How Edfrica uses cookies and similar technologies.";
+
+export const metadata = buildMetadata({ title, description, path });
+
+const crumbs = [{ name: title, path }];
 
 const sections: LegalSection[] = [
   {
@@ -103,11 +108,19 @@ const sections: LegalSection[] = [
 
 export default function CookiePolicyPage() {
   return (
-    <LegalPageLayout
-      title="Cookie Policy"
-      lastUpdated="July 2026"
-      intro="This policy explains how Edfrica uses cookies and similar technologies across its platforms, and how you can manage your preferences."
-      sections={sections}
-    />
+    <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+        ])}
+      />
+      <LegalPageLayout
+        title="Cookie Policy"
+        lastUpdated="July 2026"
+        intro="This policy explains how Edfrica uses cookies and similar technologies across its platforms, and how you can manage your preferences."
+        sections={sections}
+      />
+    </>
   );
 }

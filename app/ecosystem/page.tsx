@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { pillars } from "@/lib/content";
 import { PillarDeepDive } from "@/components/PillarDeepDive";
@@ -6,6 +5,14 @@ import { EsoIsoSplit } from "@/components/EsoIsoSplit";
 import { RegionalNetworkGrid } from "@/components/RegionalNetworkGrid";
 import { TlabRankLadder } from "@/components/TlabRankLadder";
 import { Pattern } from "@/components/Pattern";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  breadcrumbNode,
+  graph,
+  pillarListNode,
+  webPageNode,
+} from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
 const extras: Record<string, React.ReactNode> = {
   institute: (
@@ -17,16 +24,36 @@ const extras: Record<string, React.ReactNode> = {
   education: <TlabRankLadder />,
 };
 
-export const metadata: Metadata = {
-  title: "Our Five-Pillar Ecosystem",
-  description:
-    "A deep dive into Edfrica's five pillars — Media, Institute, Education (TLab), Infrastructure (The Hub), and Foundation — building youth entrepreneurship and STEAM innovation across Africa.",
-  alternates: { canonical: "/ecosystem" },
-};
+const path = "/ecosystem";
+const title = "Our Five-Pillar Ecosystem";
+const description =
+  "A deep dive into Edfrica's five pillars — Media, Institute, Education (TLab), Infrastructure (The Hub), and Foundation — building youth entrepreneurship and STEAM innovation across Africa.";
+
+export const metadata = buildMetadata({
+  title,
+  description,
+  path,
+  socialTitle: "Five pillars, one Edfrica",
+});
+
+const crumbs = [{ name: "Ecosystem", path }];
 
 export default function EcosystemPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageNode({
+            path,
+            name: title,
+            description,
+            type: "CollectionPage",
+            crumbs,
+          }),
+          breadcrumbNode(crumbs),
+          pillarListNode(),
+        ])}
+      />
       <section className="relative overflow-hidden bg-paper pt-16 pb-10">
         <Pattern variant="dots" tone="light" anchor="top" />
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8">

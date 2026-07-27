@@ -3,7 +3,10 @@ import { Fraunces, Public_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { CtaFooter } from "@/components/CtaFooter";
-import { OrganizationSchema } from "@/components/OrganizationSchema";
+import { JsonLd } from "@/components/JsonLd";
+import { orgName } from "@/lib/content";
+import { graph, organizationNode, websiteNode } from "@/lib/schema";
+import { defaultDescription, defaultTitle, siteName, siteUrl } from "@/lib/seo";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -28,12 +31,13 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Edfrica — Turning African Ambition Into Impact",
+    default: defaultTitle,
     template: "%s · Edfrica",
   },
-  description:
-    "Edfrica is a five-pillar social enterprise ecosystem — media, institute, education, infrastructure, and foundation — equipping young Africans to lead and build across all 15 ECOWAS and Alliance of Sahel States countries.",
+  description: defaultDescription,
+  applicationName: siteName,
   keywords: [
     "Edfrica",
     "youth entrepreneurship Africa",
@@ -43,34 +47,59 @@ export const metadata: Metadata = {
     "STEAM education Africa",
     "Abeokuta innovation hub",
     "social enterprise Africa",
+    "entrepreneurship support organisation",
+    "business incubation Ogun State",
   ],
-  metadataBase: new URL("https://edfrica.org"),
+  authors: [{ name: orgName, url: siteUrl }],
+  creator: orgName,
+  publisher: orgName,
+  category: "Social enterprise",
   alternates: {
     canonical: "/",
   },
+  /**
+   * `max-image-preview: large` is what unlocks full-size thumbnails in Google
+   * results and Discover; without it Google defaults to a small preview.
+   */
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  // Stops iOS Safari from auto-linking numbers in body copy as phone numbers.
+  formatDetection: { telephone: false, address: false, email: false },
   openGraph: {
-    title: "Edfrica — Turning African Ambition Into Impact",
+    title: defaultTitle,
     description:
       "A five-pillar social enterprise ecosystem for young Africans who build.",
     url: "/",
-    siteName: "Edfrica",
-    images: ["/logo-square.jpeg"],
-    locale: "en_US",
+    siteName,
+    locale: "en_NG",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edfrica — Turning African Ambition Into Impact",
+    title: defaultTitle,
     description:
       "A five-pillar social enterprise ecosystem for young Africans who build.",
-    images: ["/logo-square.jpeg"],
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2f8f3c",
+  // Matches the paper/background tokens so the mobile browser chrome tracks
+  // whichever theme the visitor is in.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#100d2e" },
+  ],
 };
 
 /**
@@ -100,9 +129,18 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
       <body className="flex min-h-full flex-col bg-paper font-sans text-ink">
-        <OrganizationSchema />
+        {/* Site-wide entity graph. Page-level graphs reference these by @id. */}
+        <JsonLd data={graph([organizationNode(), websiteNode()])} />
+        <a
+          href="#main"
+          className="sr-only rounded-full bg-indigo px-5 py-3 text-sm font-semibold text-white focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main className="flex flex-1 flex-col">{children}</main>
+        <main id="main" className="flex flex-1 flex-col">
+          {children}
+        </main>
         <CtaFooter />
       </body>
     </html>

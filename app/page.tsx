@@ -5,6 +5,9 @@ import { WhatWeDo } from "@/components/WhatWeDo";
 import { TrustSignals } from "@/components/TrustSignals";
 import { TalentPipeline } from "@/components/TalentPipeline";
 import { ClosingCta } from "@/components/ClosingCta";
+import { JsonLd } from "@/components/JsonLd";
+import { graph, pillarListNode, webPageNode } from "@/lib/schema";
+import { defaultDescription, defaultTitle } from "@/lib/seo";
 // Insights is built and ready — re-enable once real articles are available.
 // See components/Insights.tsx and the `insights` array in lib/content.ts.
 // import { Insights } from "@/components/Insights";
@@ -12,6 +15,17 @@ import { ClosingCta } from "@/components/ClosingCta";
 export default function Home() {
   return (
     <>
+      {/* No breadcrumb on the homepage — it is the root of every trail. */}
+      <JsonLd
+        data={graph([
+          webPageNode({
+            path: "/",
+            name: defaultTitle,
+            description: defaultDescription,
+          }),
+          pillarListNode(),
+        ])}
+      />
       <Hero />
       <Ecosystem />
       <WhoWeServe />

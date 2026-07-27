@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { pillars, services, whyEiieExists } from "@/lib/content";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
@@ -9,19 +8,44 @@ import { EsoIsoSplit } from "@/components/EsoIsoSplit";
 import { RegionalNetworkGrid } from "@/components/RegionalNetworkGrid";
 import { getIcon } from "@/components/iconRegistry";
 import { ArrowRightIcon } from "@/components/icons";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  breadcrumbNode,
+  graph,
+  instituteNode,
+  webPageNode,
+} from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
 const institute = pillars.find((pillar) => pillar.id === "institute")!;
 
-export const metadata: Metadata = {
-  title: "Edfrica Institute for Innovation & Enterprise",
-  description:
-    "Nigeria's entrepreneurship (ESO) and innovation (ISO) support institute, headquartered in Abeokuta with a regional network across all 15 ECOWAS and Alliance of Sahel States countries.",
-  alternates: { canonical: "/institute" },
-};
+const path = "/institute";
+const title = "Edfrica Institute for Innovation & Enterprise";
+const description =
+  "Nigeria's entrepreneurship (ESO) and innovation (ISO) support institute, headquartered in Abeokuta with a regional network across all 15 ECOWAS and Alliance of Sahel States countries.";
+
+export const metadata = buildMetadata({
+  title,
+  description,
+  path,
+  socialTitle: "The Edfrica Institute for Innovation & Enterprise",
+});
+
+const crumbs = [
+  { name: "Ecosystem", path: "/ecosystem" },
+  { name: "The Institute", path },
+];
 
 export default function InstitutePage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageNode({ path, name: title, description, crumbs }),
+          breadcrumbNode(crumbs),
+          instituteNode(),
+        ])}
+      />
       <section className="relative overflow-hidden bg-indigo text-white">
         <Pattern variant="crosshatch" tone="dark" anchor="right" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
