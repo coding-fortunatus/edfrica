@@ -26,7 +26,7 @@ export function PillarDeepDive({
       <p className="mt-2 font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
         {pillar.role}
       </p>
-      <h2 className="mt-2 font-display text-3xl font-semibold text-ink">
+      <h2 className="mt-2 font-display text-3xl font-bold text-ink">
         {pillar.name}
       </h2>
       <p className="mt-1 text-base text-ink/60">{pillar.tagline}</p>

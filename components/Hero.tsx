@@ -5,8 +5,12 @@ import { orgName } from "@/lib/content";
 
 const slides: HeroSlide[] = [
   {
-    photo: "/photos/hub-exterior.jpg",
-    photoAlt: "The Edfrica Hub building exterior in Sokenu, Abeokuta",
+    photo: "/photos/edfrica-building.jpg",
+    photoAlt: "The Edfrica building in Sokenu, Abeokuta",
+  },
+  {
+    photo: "/photos/staff-team.jpg",
+    photoAlt: "The Edfrica staff team at the hub in Abeokuta",
   },
   {
     photo: "/photos/robotics-workshop.jpg",
@@ -28,7 +32,7 @@ export function Hero() {
           <p className="font-mono text-xs tracking-[0.2em] text-green uppercase">
             {orgName} · Est. 2017
           </p>
-          <h1 className="mt-6 font-display text-4xl leading-[1.08] font-semibold sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 font-display text-4xl leading-[1.08] font-bold sm:text-5xl lg:text-6xl">
             Turning African ambition{" "}
             <em className="text-green italic">into impact.</em>
           </h1>

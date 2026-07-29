@@ -4,7 +4,7 @@ import {
   teamComposition,
   type SocialLinks,
 } from "@/lib/content";
-import { AvatarPlaceholder } from "@/components/AvatarPlaceholder";
+import { Avatar } from "@/components/Avatar";
 import { Pattern } from "@/components/Pattern";
 import {
   LinkedinIcon,
@@ -28,9 +28,9 @@ function CompositionBar() {
         <div className="bg-indigo" style={{ width: `${malePercent}%` }} />
       </div>
       <p className="mt-3 text-sm leading-relaxed text-ink/60">
-        <span className="font-semibold text-ink">{total} professionals</span>{" "}
+        <span className="font-bold text-ink">{total} professionals</span>{" "}
         across the ecosystem, including{" "}
-        <span className="font-semibold text-ink">{pwdPercent}%</span> living
+        <span className="font-bold text-ink">{pwdPercent}%</span> living
         with a disability.
       </p>
     </div>
@@ -90,12 +90,12 @@ export function Leadership() {
         <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
           Leadership
         </p>
-        <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+        <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
           The team behind the ecosystem
         </h1>
         <CompositionBar />
 
-        <h2 className="mt-16 font-display text-2xl font-semibold text-ink">
+        <h2 className="mt-16 font-display text-2xl font-bold text-ink">
           Executive team
         </h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -104,12 +104,13 @@ export function Leadership() {
               key={member.name}
               className="rounded-3xl border border-ink/10 bg-parchment/50 p-8 text-center"
             >
-              <AvatarPlaceholder
+              <Avatar
                 name={member.name}
+                photo={member.photo}
                 tone={index % 2 === 0 ? "green" : "indigo"}
                 className="mx-auto"
               />
-              <p className="mt-5 font-display text-lg font-semibold text-ink">
+              <p className="mt-5 font-display text-lg font-bold text-ink">
                 {member.name}
               </p>
               <p className="mt-1 text-sm text-ink/60">{member.role}</p>
@@ -118,17 +119,23 @@ export function Leadership() {
           ))}
         </div>
 
-        <h2 className="mt-16 font-display text-2xl font-semibold text-ink">
+        <h2 className="mt-16 font-display text-2xl font-bold text-ink">
           Management team
         </h2>
         <div className="mt-6 grid grid-cols-2 gap-5 sm:grid-cols-4">
-          {managementTeam.map((name) => (
+          {managementTeam.map((member) => (
             <div
-              key={name}
+              key={member.name}
               className="rounded-2xl border border-ink/10 bg-paper p-6 text-center"
             >
-              <AvatarPlaceholder name={name} tone="parchment" size="sm" className="mx-auto" />
-              <p className="mt-4 text-sm font-semibold text-ink">{name}</p>
+              <Avatar
+                name={member.name}
+                photo={member.photo}
+                tone="parchment"
+                size="sm"
+                className="mx-auto"
+              />
+              <p className="mt-4 text-sm font-bold text-ink">{member.name}</p>
             </div>
           ))}
         </div>

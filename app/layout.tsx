@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Public_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Lato, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { CtaFooter } from "@/components/CtaFooter";
@@ -8,18 +8,16 @@ import { orgName } from "@/lib/content";
 import { graph, organizationNode, websiteNode } from "@/lib/schema";
 import { defaultDescription, defaultTitle, siteName, siteUrl } from "@/lib/seo";
 
-const fraunces = Fraunces({
+/**
+ * Lato carries both display and body type. It ships no 500 or 600 cut, so the
+ * markup uses `font-normal` / `font-bold` directly rather than Tailwind's
+ * medium/semibold, which would silently resolve to those same 400 and 700 cuts.
+ */
+const lato = Lato({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["500", "600", "700"],
+  variable: "--font-lato",
+  weight: ["100", "300", "400", "700", "900"],
   style: ["normal", "italic"],
-  display: "swap",
-});
-
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-  variable: "--font-public-sans",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -122,7 +120,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${fraunces.variable} ${publicSans.variable} ${plexMono.variable}`}
+      className={`h-full antialiased ${lato.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -133,7 +131,7 @@ export default function RootLayout({
         <JsonLd data={graph([organizationNode(), websiteNode()])} />
         <a
           href="#main"
-          className="sr-only rounded-full bg-indigo px-5 py-3 text-sm font-semibold text-white focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100"
+          className="sr-only rounded-full bg-indigo px-5 py-3 text-sm font-bold text-white focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100"
         >
           Skip to content
         </a>

@@ -32,22 +32,22 @@ const sections: LegalSection[] = [
     body: (
       <ul className="list-disc space-y-2 pl-5">
         <li>
-          <span className="font-medium text-ink">Strictly necessary:</span>{" "}
+          <span className="font-normal text-ink">Strictly necessary:</span>{" "}
           required for core site functionality (navigation, security). These
           cannot be disabled.
         </li>
         <li>
-          <span className="font-medium text-ink">Performance & analytics:</span>{" "}
+          <span className="font-normal text-ink">Performance & analytics:</span>{" "}
           help us understand how visitors use our platforms so we can improve
           them.
         </li>
         <li>
-          <span className="font-medium text-ink">Functionality:</span> remember
+          <span className="font-normal text-ink">Functionality:</span> remember
           choices you make (such as display preferences) to provide a more
           personalized experience.
         </li>
         <li>
-          <span className="font-medium text-ink">Advertising:</span> {orgName}{" "}
+          <span className="font-normal text-ink">Advertising:</span> {orgName}{" "}
           does not currently use advertising or third-party ad-targeting
           cookies.
         </li>

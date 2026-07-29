@@ -10,7 +10,7 @@ export function OurStory() {
             <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
               Our story
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
               From a leadership conference to a five-pillar ecosystem
             </h2>
 
@@ -24,7 +24,7 @@ export function OurStory() {
                     )}
                   </div>
                   <div className="pb-10">
-                    <span className="inline-block rounded-full bg-indigo px-3 py-1 font-mono text-xs font-medium text-white">
+                    <span className="inline-block rounded-full bg-indigo px-3 py-1 font-mono text-xs font-normal text-white">
                       {entry.year}
                     </span>
                     <p className="mt-3 max-w-xl text-base leading-relaxed text-ink/75">

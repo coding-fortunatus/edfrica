@@ -28,7 +28,7 @@ export function TalentPipeline() {
             <p className="font-mono text-xs tracking-[0.2em] text-green uppercase">
               Talent
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">
               Building Africa&rsquo;s next builders
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70">

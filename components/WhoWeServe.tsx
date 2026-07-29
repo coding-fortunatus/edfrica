@@ -15,7 +15,7 @@ export function WhoWeServe() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Who We Serve
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             Partnering for your growth
           </h2>
         </div>
@@ -34,7 +34,7 @@ export function WhoWeServe() {
         <div
           role="tablist"
           aria-label="Partner audiences"
-          className="mx-auto mt-14 grid max-w-4xl grid-cols-2 border-t border-ink/12 sm:grid-cols-4"
+          className="mx-auto mt-14 grid max-w-4xl grid-cols-2 border-t border-ink/12 sm:grid-cols-3 lg:grid-cols-5"
         >
           {partnerAudiences.map((item, index) => {
             const selected = index === active;
@@ -61,7 +61,7 @@ export function WhoWeServe() {
                   <Icon name={item.icon} className="h-5 w-5" />
                 </span>
                 <span
-                  className={`text-center text-sm font-medium transition-colors ${
+                  className={`text-center text-sm font-normal transition-colors ${
                     selected ? "text-ink" : "text-ink/45 group-hover:text-ink/75"
                   }`}
                 >

@@ -10,7 +10,7 @@ export function RegionalNetworkGrid() {
         {regionalNetwork.map((country) => (
           <span
             key={country.name}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
+            className={`rounded-full border px-3 py-1.5 text-xs font-normal ${
               country.bloc === "AES"
                 ? "border-ink/25 bg-ink/5 text-ink"
                 : "border-green-deep/20 bg-mint text-green-deep"

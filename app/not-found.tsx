@@ -25,7 +25,7 @@ export default function NotFound() {
         <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
           Error 404
         </p>
-        <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+        <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
           We can&rsquo;t find that page
         </h1>
         <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink/70">
@@ -49,7 +49,7 @@ export default function NotFound() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-ink/70 transition-colors hover:text-green-deep"
+                  className="text-sm font-normal text-ink/70 transition-colors hover:text-green-deep"
                 >
                   {item.label}
                 </Link>

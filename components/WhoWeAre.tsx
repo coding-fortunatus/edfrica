@@ -13,7 +13,7 @@ export function WhoWeAre() {
             <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
               Who we are
             </p>
-            <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+            <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
               A social enterprise turning African ambition into impact
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-ink/70">
@@ -23,8 +23,8 @@ export function WhoWeAre() {
 
           <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
             <ImageWithSkeleton
-              src="/photos/hub-exterior.jpg"
-              alt="The Edfrica Hub building exterior in Sokenu, Abeokuta"
+              src="/photos/edfrica-building.jpg"
+              alt="The Edfrica building in Sokenu, Abeokuta"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               priority
@@ -41,7 +41,7 @@ export function WhoWeAre() {
             <p className="mt-4 font-mono text-xs tracking-wider text-green-deep uppercase">
               Our mission
             </p>
-            <p className="mt-3 font-display text-xl leading-snug font-medium text-ink">
+            <p className="mt-3 font-display text-xl leading-snug font-normal text-ink">
               {missionVision.mission}
             </p>
           </div>
@@ -52,7 +52,7 @@ export function WhoWeAre() {
             <p className="mt-4 font-mono text-xs tracking-wider text-ink/60 uppercase">
               Our vision
             </p>
-            <p className="mt-3 font-display text-xl leading-snug font-medium text-ink">
+            <p className="mt-3 font-display text-xl leading-snug font-normal text-ink">
               {missionVision.vision}
             </p>
           </div>

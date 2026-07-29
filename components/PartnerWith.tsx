@@ -7,10 +7,13 @@ import {
   BriefcaseIcon,
   LandmarkIcon,
   GraduationCapIcon,
+  StarIcon,
 } from "@/components/icons";
 
+// Keys must match `partnerAudiences[].title` in lib/content.ts exactly.
 const audienceIcons: Record<string, typeof HeartIcon> = {
-  "NGOs & donors": HeartIcon,
+  "Entrepreneurs & MSMEs": StarIcon,
+  NGOs: HeartIcon,
   "Corporates & foundations": BriefcaseIcon,
   "Government & public sector": LandmarkIcon,
   "Academic & research institutions": GraduationCapIcon,
@@ -27,7 +30,7 @@ export function PartnerWith() {
               <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
                 Partnership
               </p>
-              <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+              <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
                 Why organizations partner with Edfrica
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
@@ -38,8 +41,8 @@ export function PartnerWith() {
 
             <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
               <ImageWithSkeleton
-                src="/photos/community-outreach.jpg"
-                alt="Edfrica volunteers and children at a community outreach event"
+                src="/photos/partnership.jpg"
+                alt="An Edfrica director and a partner shaking hands at the hub"
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 priority
@@ -63,7 +66,7 @@ export function PartnerWith() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-mint text-green-deep">
                     <Icon />
                   </span>
-                  <h2 className="mt-4 font-display text-xl font-semibold text-ink">
+                  <h2 className="mt-4 font-display text-xl font-bold text-ink">
                     {audience.title}
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-ink/70">
@@ -78,7 +81,7 @@ export function PartnerWith() {
 
       <section className="bg-paper py-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-semibold text-ink">
+          <h2 className="font-display text-2xl font-bold text-ink">
             Why organizations choose to work with us
           </h2>
           <ul className="mt-6 flex flex-col gap-4">
@@ -110,7 +113,7 @@ export function PartnerWith() {
         />
         <div className="absolute inset-0 bg-indigo/85" />
         <div className="relative mx-auto max-w-2xl px-6 text-center lg:px-8">
-          <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Ready to explore a partnership?
           </h2>
           <p className="mt-3 text-white/70">

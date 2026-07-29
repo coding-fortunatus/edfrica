@@ -50,7 +50,7 @@ export default function ServicesPage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Our services
           </p>
-          <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
             Services, delivered end to end
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
               <p className="mt-5 font-mono text-xs text-ink/40">
                 {service.number}
               </p>
-              <h2 className="mt-2 font-display text-3xl font-semibold text-ink">
+              <h2 className="mt-2 font-display text-3xl font-bold text-ink">
                 {service.title}
               </h2>
               <p className="mt-1 text-base text-ink/60">{service.descriptor}</p>

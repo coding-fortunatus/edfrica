@@ -12,7 +12,7 @@ export function PartnerTeaser() {
             <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
               Partnership
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
               Built for donor and institutional due diligence
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink/70">
@@ -21,7 +21,7 @@ export function PartnerTeaser() {
             </p>
             <Link
               href="/partner"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-ink"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-green-deep hover:text-ink"
             >
               See why organizations partner with us <ArrowRightIcon />
             </Link>

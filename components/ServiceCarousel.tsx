@@ -60,7 +60,7 @@ export function ServiceCarousel({ services }: { services: Service[] }) {
             </div>
 
             <div className="relative">
-              <h3 className="font-display text-xl leading-snug font-semibold">
+              <h3 className="font-display text-xl leading-snug font-bold">
                 {service.number}. {service.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-white/85">
@@ -68,7 +68,7 @@ export function ServiceCarousel({ services }: { services: Service[] }) {
               </p>
             </div>
 
-            <span className="relative inline-flex w-fit items-center gap-2 rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold transition-colors group-hover:bg-white group-hover:text-indigo">
+            <span className="relative inline-flex w-fit items-center gap-2 rounded-full border border-white/30 px-5 py-2.5 text-sm font-bold transition-colors group-hover:bg-white group-hover:text-indigo">
               Learn More
               <ArrowRightIcon />
             </span>

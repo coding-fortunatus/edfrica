@@ -10,7 +10,7 @@ export function WhoWeAreTeaser() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Who we are
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             A social enterprise turning African ambition into impact
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/70">
@@ -18,7 +18,7 @@ export function WhoWeAreTeaser() {
           </p>
           <Link
             href="/about"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-ink"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-green-deep hover:text-ink"
           >
             Learn more about us <ArrowRightIcon />
           </Link>
@@ -31,7 +31,7 @@ export function WhoWeAreTeaser() {
           <p className="mt-4 font-mono text-xs tracking-wider text-green-deep uppercase">
             Our mission
           </p>
-          <p className="mt-3 font-display text-xl leading-snug font-medium text-ink">
+          <p className="mt-3 font-display text-xl leading-snug font-normal text-ink">
             {missionVision.mission}
           </p>
           <div className="my-6 h-px bg-ink/10" />
@@ -41,7 +41,7 @@ export function WhoWeAreTeaser() {
           <p className="mt-4 font-mono text-xs tracking-wider text-green-deep uppercase">
             Our vision
           </p>
-          <p className="mt-3 font-display text-xl leading-snug font-medium text-ink">
+          <p className="mt-3 font-display text-xl leading-snug font-normal text-ink">
             {missionVision.vision}
           </p>
         </div>

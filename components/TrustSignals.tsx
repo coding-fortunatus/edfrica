@@ -21,7 +21,7 @@ export function TrustSignals() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Certifications
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             De-risking your partnership
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/70">
@@ -37,14 +37,17 @@ export function TrustSignals() {
                 <div
                   key={signal.title}
                   className={`flex items-start gap-4 py-6 ${
-                    index < 2 ? "sm:border-b sm:border-ink/10" : ""
+                    // Everything except the final two-column row carries a rule.
+                    index < trustSignals.length - 2
+                      ? "sm:border-b sm:border-ink/10"
+                      : ""
                   }`}
                 >
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo text-white">
                     <Icon className="h-6 w-6" />
                   </span>
                   <div>
-                    <h3 className="font-display text-base font-semibold text-ink">
+                    <h3 className="font-display text-base font-bold text-ink">
                       {signal.title}
                     </h3>
                     <p className="mt-1 text-sm leading-relaxed text-ink/60">

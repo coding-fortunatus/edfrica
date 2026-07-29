@@ -9,6 +9,7 @@ import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { Pattern } from "@/components/Pattern";
+import { LocationMap } from "@/components/LocationMap";
 import { getIcon } from "@/components/iconRegistry";
 import { ArrowRightIcon, CheckIcon, MapPinIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
@@ -59,7 +60,7 @@ export default function HubPage() {
               <p className="font-mono text-xs tracking-[0.2em] text-green uppercase">
                 Innovation Hub
               </p>
-              <h1 className="mt-4 font-display text-4xl leading-tight font-semibold sm:text-5xl">
+              <h1 className="mt-4 font-display text-4xl leading-tight font-bold sm:text-5xl">
                 The Edfrica Hub
               </h1>
               <p className="mt-3 text-lg text-white/70">{hub.tagline}</p>
@@ -102,7 +103,7 @@ export default function HubPage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Facilities
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             What&rsquo;s inside
           </h2>
 
@@ -117,7 +118,7 @@ export default function HubPage() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-deep text-white">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-ink">
+                  <h3 className="mt-5 font-display text-lg font-bold text-ink">
                     {facility.name}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink/65">
@@ -135,7 +136,7 @@ export default function HubPage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Who works from here
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             A working building, not a showroom
           </h2>
 
@@ -151,7 +152,7 @@ export default function HubPage() {
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-semibold text-ink">
+                    <h3 className="font-display text-lg font-bold text-ink">
                       {occupant.name}
                     </h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-ink/65">
@@ -170,7 +171,7 @@ export default function HubPage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Pricing
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             Plans and rates
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
@@ -193,10 +194,10 @@ export default function HubPage() {
                     Most popular
                   </span>
                 )}
-                <h3 className="font-display text-xl font-semibold text-ink">
+                <h3 className="font-display text-xl font-bold text-ink">
                   {tier.name}
                 </h3>
-                <p className="mt-4 font-mono text-3xl font-medium text-ink">
+                <p className="mt-4 font-mono text-3xl font-normal text-ink">
                   {tier.price}
                 </p>
                 <p className="mt-1 text-xs text-ink/50">{tier.unit}</p>
@@ -228,12 +229,12 @@ export default function HubPage() {
 
       <section className="border-t border-ink/10 bg-parchment/40 py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="max-w-xl">
             <div>
               <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
                 Find us
               </p>
-              <h2 className="mt-3 font-display text-3xl font-semibold text-ink">
+              <h2 className="mt-3 font-display text-3xl font-bold text-ink">
                 {contact.offices[0].city}
               </h2>
               <p className="mt-4 text-base leading-relaxed text-ink/70">
@@ -266,19 +267,13 @@ export default function HubPage() {
                 </Button>
               </div>
             </div>
-
-            <div className="relative aspect-3/2 overflow-hidden rounded-3xl">
-              <ImageWithSkeleton
-                src="/photos/hub-exterior.jpg"
-                alt={hub.photoAlt}
-                fill
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
+
+      {/* The map closes the page — it replaces the building photo that used to
+          sit beside "Find us". */}
+      <LocationMap />
     </>
   );
 }

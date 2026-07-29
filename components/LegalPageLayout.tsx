@@ -24,7 +24,7 @@ export function LegalPageLayout({
     <section className="bg-paper py-16">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="rounded-2xl border border-green-deep/20 bg-mint px-5 py-4 text-sm leading-relaxed text-ink/80">
-          <span className="font-semibold text-green-deep">
+          <span className="font-bold text-green-deep">
             Draft — pending legal review.
           </span>{" "}
           This page reflects standard industry practice and will be finalized
@@ -34,7 +34,7 @@ export function LegalPageLayout({
         <p className="mt-8 font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
           Legal
         </p>
-        <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+        <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
           {title}
         </h1>
         <p className="mt-2 font-mono text-xs tracking-wider text-ink/40 uppercase">
@@ -68,7 +68,7 @@ export function LegalPageLayout({
           <div className="flex flex-col gap-10">
             {sections.map((section) => (
               <div key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="font-display text-xl font-semibold text-ink">
+                <h2 className="font-display text-xl font-bold text-ink">
                   {section.heading}
                 </h2>
                 <div className="mt-3 flex flex-col gap-3 text-sm leading-relaxed text-ink/75">
@@ -81,7 +81,7 @@ export function LegalPageLayout({
                 Questions about this policy? Contact us at{" "}
                 <a
                   href={`mailto:${contact.email}`}
-                  className="font-medium text-ink hover:text-green-deep"
+                  className="font-normal text-ink hover:text-green-deep"
                 >
                   {contact.email}
                 </a>

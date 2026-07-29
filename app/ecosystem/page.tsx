@@ -60,7 +60,7 @@ export default function EcosystemPage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             The ecosystem
           </p>
-          <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h1 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
             Five pillars, one Edfrica
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">

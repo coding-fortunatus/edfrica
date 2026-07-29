@@ -19,6 +19,10 @@ import { buildMetadata } from "@/lib/seo";
 
 const institute = pillars.find((pillar) => pillar.id === "institute")!;
 
+// The heading carries its own image; the pillar card keeps `institute.photo`.
+const heroPhoto = "/photos/staff-team.jpg";
+const heroPhotoAlt = "The Edfrica Institute team at the hub in Abeokuta";
+
 const path = "/institute";
 const title = "Edfrica Institute for Innovation & Enterprise";
 const description =
@@ -54,15 +58,15 @@ export default function InstitutePage() {
               <p className="font-mono text-xs tracking-[0.2em] text-green uppercase">
                 Institute
               </p>
-              <h1 className="mt-4 font-display text-4xl leading-tight font-semibold sm:text-5xl">
+              <h1 className="mt-4 font-display text-4xl leading-tight font-bold sm:text-5xl">
                 Edfrica Institute for Innovation &amp; Enterprise
               </h1>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70">
                 {institute.description}
               </p>
               <div className="mt-7 flex flex-wrap gap-2">
-                <Chip tone="dark">CAC 8196200</Chip>
                 <Chip tone="dark">SCUML registered</Chip>
+                <Chip tone="dark">ISN member</Chip>
                 <Chip tone="dark">Operating since 2017</Chip>
                 <Chip tone="dark">15-country network</Chip>
               </div>
@@ -79,8 +83,8 @@ export default function InstitutePage() {
 
             <div className="relative aspect-4/3 overflow-hidden rounded-3xl">
               <ImageWithSkeleton
-                src={institute.photo}
-                alt={institute.photoAlt}
+                src={heroPhoto}
+                alt={heroPhotoAlt}
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 priority
@@ -107,7 +111,7 @@ export default function InstitutePage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Two mandates
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             ESO and ISO, under one roof
           </h2>
           <EsoIsoSplit />
@@ -119,7 +123,7 @@ export default function InstitutePage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Services
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             Delivered end to end
           </h2>
 
@@ -136,7 +140,7 @@ export default function InstitutePage() {
                     <Icon className="h-5 w-5" />
                   </span>
                   <span>
-                    <span className="block font-display text-base font-semibold text-ink">
+                    <span className="block font-display text-base font-bold text-ink">
                       {service.title}
                     </span>
                     <span className="mt-1 block text-sm leading-relaxed text-ink/65">
@@ -162,13 +166,13 @@ export default function InstitutePage() {
           <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
             Regional network
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
             Fifteen countries, one delivery standard
           </h2>
           <RegionalNetworkGrid />
 
           <div className="mt-12 rounded-3xl border border-ink/10 bg-paper p-8">
-            <h3 className="font-display text-xl font-semibold text-ink">
+            <h3 className="font-display text-xl font-bold text-ink">
               OGEII — Ogun Enterprise &amp; Innovation Institute
             </h3>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink/70">

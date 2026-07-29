@@ -65,7 +65,7 @@ function PillarCard({ pillar, wide = false }: { pillar: Pillar; wide?: boolean }
         <p className="font-mono text-[11px] tracking-[0.16em] text-green-deep uppercase">
           {pillar.role}
         </p>
-        <h3 className="mt-2 font-display text-xl leading-tight font-semibold text-ink">
+        <h3 className="mt-2 font-display text-xl leading-tight font-bold text-ink">
           {pillar.navLabel}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink/60">
@@ -74,7 +74,7 @@ function PillarCard({ pillar, wide = false }: { pillar: Pillar; wide?: boolean }
 
         <div className="mt-auto flex items-end justify-between gap-4 border-t border-ink/8 pt-5">
           <div className="min-w-0">
-            <p className="font-mono text-base font-semibold text-ink">
+            <p className="font-mono text-base font-bold text-ink">
               {pillar.stat.value}
             </p>
             <p className="truncate text-[11px] text-ink/50">
@@ -115,7 +115,7 @@ export function Ecosystem({ showDeepDiveLink = true }: EcosystemProps) {
             <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
               The Ecosystem
             </p>
-            <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
+            <h2 className="mt-3 max-w-xl font-display text-3xl font-bold text-ink sm:text-4xl">
               Five pillars, one Edfrica
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">

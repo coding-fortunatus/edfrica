@@ -196,7 +196,7 @@ export function hubPlaceNode(): JsonLdNode {
     email: contact.email,
     telephone: contact.phones[0],
     parentOrganization: { "@id": ORG_ID },
-    image: absoluteUrl("/photos/hub-exterior.jpg"),
+    image: absoluteUrl("/photos/edfrica-building.jpg"),
     amenityFeature: hubFacilities.map((facility) => ({
       "@type": "LocationFeatureSpecification",
       name: facility.name,
@@ -256,6 +256,7 @@ export function leadershipListNode(): JsonLdNode {
         name: member.name,
         jobTitle: member.role,
         worksFor: { "@id": ORG_ID },
+        ...(member.photo ? { image: absoluteUrl(member.photo) } : {}),
         ...(Object.values(member.social).filter(Boolean).length
           ? { sameAs: Object.values(member.social).filter(Boolean) }
           : {}),

@@ -1,9 +1,11 @@
-import { PersonIcon } from "@/components/icons";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 type Tone = "green" | "indigo" | "parchment";
 
-type AvatarPlaceholderProps = {
+type AvatarProps = {
   name: string;
+  /** Omit where no headshot exists — an initials monogram is drawn instead. */
+  photo?: string;
   tone?: Tone;
   size?: "sm" | "md" | "lg";
   className?: string;
@@ -21,34 +23,75 @@ const sizes = {
   lg: "h-28 w-28",
 };
 
-export function AvatarPlaceholder({
+const monogramSizes = {
+  sm: "text-lg",
+  md: "text-xl",
+  lg: "text-3xl",
+};
+
+/**
+ * "Dr. Emmanuel Odumusi" -> "EO". Honorifics are dropped so they never eat one
+ * of the two slots, and single-word names fall back to their first letter.
+ */
+function initialsFrom(name: string) {
+  const honorifics = new Set(["dr", "mr", "mrs", "ms", "prof", "engr"]);
+  const words = name
+    .split(/\s+/)
+    .map((word) => word.replace(/[^\p{L}]/gu, ""))
+    .filter((word) => word && !honorifics.has(word.toLowerCase()));
+
+  if (words.length === 0) return "?";
+  if (words.length === 1) return words[0][0].toUpperCase();
+  return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+}
+
+export function Avatar({
   name,
+  photo,
   tone = "green",
   size = "md",
   className = "",
-}: AvatarPlaceholderProps) {
+}: AvatarProps) {
   const isDark = tone === "indigo";
 
   return (
     <div
       role="img"
-      aria-label={`Placeholder photo for ${name}. Portrait to be supplied.`}
-      className={`relative flex items-center justify-center overflow-hidden rounded-full border bg-gradient-to-br ${tones[tone]} ${sizes[size]} ${
+      aria-label={photo ? `Portrait of ${name}` : `${name}, no portrait supplied`}
+      className={`relative flex items-center justify-center overflow-hidden rounded-full border bg-linear-to-br ${tones[tone]} ${sizes[size]} ${
         isDark ? "border-white/20" : "border-ink/10"
       } ${className}`}
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 1px, transparent 10px)",
-          color: isDark ? "#ffffff" : "var(--ink)",
-        }}
-      />
-      <PersonIcon
-        className={`relative h-8 w-8 ${isDark ? "text-white/70" : "text-ink/35"}`}
-      />
+      {photo ? (
+        <ImageWithSkeleton
+          src={photo}
+          alt=""
+          fill
+          sizes="112px"
+          className="object-cover"
+          shimmer={false}
+        />
+      ) : (
+        <>
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 1px, transparent 10px)",
+              color: isDark ? "#ffffff" : "var(--ink)",
+            }}
+          />
+          <span
+            aria-hidden="true"
+            className={`relative font-display font-bold tracking-wide ${monogramSizes[size]} ${
+              isDark ? "text-white/80" : "text-ink/45"
+            }`}
+          >
+            {initialsFrom(name)}
+          </span>
+        </>
+      )}
     </div>
   );
 }

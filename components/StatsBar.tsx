@@ -66,7 +66,7 @@ function StatItem({
       }`}
     >
       <span
-        className={`font-mono text-3xl font-medium sm:text-4xl ${numberTone[tone]}`}
+        className={`font-mono text-3xl font-normal sm:text-4xl ${numberTone[tone]}`}
       >
         {text}
       </span>

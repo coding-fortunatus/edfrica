@@ -16,7 +16,7 @@ export function WhatWeDo() {
         <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
           Capabilities
         </p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
+        <h2 className="mt-3 max-w-xl font-display text-3xl font-bold text-ink sm:text-4xl">
           Our services
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">

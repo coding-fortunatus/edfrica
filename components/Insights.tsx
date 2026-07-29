@@ -13,7 +13,7 @@ export function Insights() {
             <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
               Insights
             </p>
-            <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl">
+            <h2 className="mt-3 max-w-xl font-display text-3xl font-bold text-ink sm:text-4xl">
               Insights and opportunities that matter
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
@@ -47,7 +47,7 @@ export function Insights() {
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <Chip tone="green">{insight.category}</Chip>
-                <h3 className="mt-4 font-display text-lg leading-snug font-semibold text-ink">
+                <h3 className="mt-4 font-display text-lg leading-snug font-bold text-ink">
                   {insight.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/65">

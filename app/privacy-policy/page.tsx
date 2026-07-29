@@ -43,19 +43,19 @@ const sections: LegalSection[] = [
         <p>We collect information in the following categories:</p>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            <span className="font-medium text-ink">
+            <span className="font-normal text-ink">
               Information you provide:
             </span>{" "}
             name, email, phone number, organization, and any details submitted
             through forms, applications, or consultations.
           </li>
           <li>
-            <span className="font-medium text-ink">Usage data:</span> pages
+            <span className="font-normal text-ink">Usage data:</span> pages
             visited, time on site, referring URLs, and device/browser
             information, collected automatically.
           </li>
           <li>
-            <span className="font-medium text-ink">Cookies:</span> as
+            <span className="font-normal text-ink">Cookies:</span> as
             described in our{" "}
             <Link href="/cookie-policy" className="text-ink hover:text-green-deep">
               Cookie Policy
@@ -63,7 +63,7 @@ const sections: LegalSection[] = [
             .
           </li>
           <li>
-            <span className="font-medium text-ink">
+            <span className="font-normal text-ink">
               Children&rsquo;s data (TLab):
             </span>{" "}
             limited account and progress data for learners aged 3&ndash;15,

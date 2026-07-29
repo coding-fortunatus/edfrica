@@ -40,7 +40,7 @@ const sections: LegalSection[] = [
         <ul className="list-disc space-y-2 pl-5">
           {pillars.map((pillar) => (
             <li key={pillar.id}>
-              <span className="font-medium text-ink">{pillar.role}</span> —{" "}
+              <span className="font-normal text-ink">{pillar.role}</span> —{" "}
               {pillar.name} (
               {pillar.external
                 ? new URL(pillar.href).host

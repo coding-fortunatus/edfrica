@@ -6,7 +6,7 @@ export function ClosingCta() {
     <section className="relative overflow-hidden bg-indigo-soft py-20 text-white">
       <Pattern variant="chevron" tone="dark" anchor="center" />
       <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
-        <h2 className="font-display text-3xl font-semibold sm:text-4xl">
+        <h2 className="font-display text-3xl font-bold sm:text-4xl">
           Let&rsquo;s build the next chapter together
         </h2>
         <p className="mt-4 text-base leading-relaxed text-white/70">

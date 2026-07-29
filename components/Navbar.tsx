@@ -38,7 +38,7 @@ const itemClasses =
 const iconTile =
   "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-mint text-green-deep transition-colors group-hover/item:bg-green-deep group-hover/item:text-white";
 const itemTitle =
-  "block text-sm font-semibold text-ink transition-colors group-hover/item:text-green-deep";
+  "block text-sm font-bold text-ink transition-colors group-hover/item:text-green-deep";
 const itemBody = "mt-0.5 block text-xs leading-relaxed text-ink/55";
 
 type DropdownProps = {
@@ -157,7 +157,7 @@ export function Navbar() {
     setOpenMenu((current) => (current === id ? null : id));
 
   const triggerClasses = (open: boolean) =>
-    `flex items-center gap-1 text-sm font-medium transition-colors ${
+    `flex items-center gap-1 text-sm font-normal transition-colors ${
       overHero
         ? "text-white hover:text-green"
         : open
@@ -166,7 +166,7 @@ export function Navbar() {
     }`;
 
   const linkClasses = (active: boolean) =>
-    `text-sm font-medium transition-colors ${
+    `text-sm font-normal transition-colors ${
       overHero
         ? "text-white hover:text-green"
         : active
@@ -200,7 +200,7 @@ export function Navbar() {
             className="h-9 w-9"
           />
           <span
-            className={`font-display text-2xl font-semibold transition-colors ${
+            className={`font-display text-2xl font-bold transition-colors ${
               overHero ? "text-white" : "text-ink"
             }`}
           >
@@ -410,7 +410,7 @@ export function Navbar() {
 
             <Link
               href="/contact"
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink hover:bg-parchment"
+              className="rounded-lg px-3 py-2.5 text-sm font-normal text-ink hover:bg-parchment"
             >
               Contact
             </Link>
@@ -448,7 +448,7 @@ function MobileGroup({
 }) {
   return (
     <details className="group">
-      <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-ink hover:bg-parchment">
+      <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2.5 text-sm font-normal text-ink hover:bg-parchment">
         {label}
         <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
       </summary>

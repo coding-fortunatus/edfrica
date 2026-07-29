@@ -58,8 +58,10 @@
   --color-paper: var(--paper);
   --color-scrim: var(--scrim);
 
-  --font-display: var(--font-fraunces);
-  --font-sans: var(--font-public-sans);
+  /* Display and body are both Lato; the token stays split so a distinct
+     display face can be reintroduced in one line. */
+  --font-display: var(--font-lato);
+  --font-sans: var(--font-lato);
   --font-mono: var(--font-plex-mono);
 }
 
