@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/terms-of-service";
 const title = "Terms of Service";
 const description =
-  "The terms governing use of Edfrica's platforms and services.";
+  "The terms governing your use of Edfrica's websites, platforms and services, including Edfrica Media, TLab, The Edfrica Hub and the Institute.";
 
 export const metadata = buildMetadata({ title, description, path });
 
@@ -40,7 +40,7 @@ const sections: LegalSection[] = [
         <ul className="list-disc space-y-2 pl-5">
           {pillars.map((pillar) => (
             <li key={pillar.id}>
-              <span className="font-normal text-ink">{pillar.role}</span> —{" "}
+              <span className="font-normal text-ink">{pillar.role}</span>:{" "}
               {pillar.name} (
               {pillar.external
                 ? new URL(pillar.href).host
@@ -94,8 +94,8 @@ const sections: LegalSection[] = [
     heading: "5. Intellectual property",
     body: (
       <p>
-        All content, branding, and materials published by Edfrica — including
-        the Edfrica name, logo, and platform content — are the property of{" "}
+        All content, branding, and materials published by Edfrica, including
+        the Edfrica name, logo, and platform content, are the property of{" "}
         {orgName} or its licensors and are protected by applicable
         intellectual property laws. You may not reproduce or redistribute
         this content without prior written consent.

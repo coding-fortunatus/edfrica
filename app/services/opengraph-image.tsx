@@ -1,6 +1,6 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Edfrica services — business support delivered end to end";
+export const alt = "Edfrica services: business support delivered end to end";
 export const size = ogSize;
 export const contentType = ogContentType;
 

@@ -190,7 +190,7 @@ export function hubPlaceNode(): JsonLdNode {
     "@id": HUB_ID,
     name: "The Edfrica Hub",
     description:
-      "Co-working, training, and event space in Sokenu, Abeokuta South LGA, Ogun State — home to OGEII and the wider Edfrica ecosystem.",
+      "Co-working, training, and event space in Sokenu, Abeokuta South LGA, Ogun State, home to OGEII and the wider Edfrica ecosystem.",
     url: absoluteUrl("/hub"),
     address: postalAddress,
     email: contact.email,

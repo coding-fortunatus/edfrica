@@ -4,7 +4,7 @@ export function RegionalNetworkGrid() {
   return (
     <div className="mt-2">
       <p className="font-mono text-xs tracking-wider text-ink/50 uppercase">
-        15-country network — ECOWAS + Alliance of Sahel States
+        15-country network · ECOWAS + Alliance of Sahel States
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
         {regionalNetwork.map((country) => (

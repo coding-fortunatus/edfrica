@@ -53,7 +53,7 @@ export const stats: Stat[] = [
 
 export const missionVision = {
   intro:
-    "Edfrica is a dynamic social enterprise committed to fostering entrepreneurship and leadership among young Africans. Operating since 2017 and formally incorporated as Edfrica Solutions Limited in January 2025, Edfrica has grown into a five-pillar ecosystem spanning media, technical delivery, education, physical infrastructure, and CSR.",
+    "Edfrica is a social enterprise working on entrepreneurship and leadership among young Africans. We have been running since 2017 and incorporated as Edfrica Solutions Limited in January 2025. The work now sits across five pillars: media, technical delivery, education, physical infrastructure, and CSR.",
   mission:
     "Toward a continent where youth believe and exhibit right entrepreneurial and leadership value.",
   vision:
@@ -93,7 +93,7 @@ export const pillars: Pillar[] = [
     navLabel: "Media",
     tagline: "Africa's opportunity intelligence platform",
     description:
-      "The leading platform for African entrepreneurs, providing business news, scholarships, tech insights, and funding opportunities across the continent. It is the beneficiary pipeline and dissemination engine for the entire Edfrica ecosystem.",
+      "Business news, scholarships, tech insights, and funding opportunities for African entrepreneurs. It is also how the rest of the Edfrica ecosystem finds the people it serves.",
     bullets: [
       "Curates funding, grant, and fellowship opportunities",
       "Connects SMEs with vetted business consultants",
@@ -118,7 +118,7 @@ export const pillars: Pillar[] = [
     bullets: [
       "ESO: business development, MSME advisory, grant & finance navigation, incubation",
       "ISO: innovation hub infrastructure, emerging-tech training, STEAM pipeline via TLab",
-      "OGEII — Ogun Enterprise & Innovation Institute chapter, based at The Edfrica Hub",
+      "OGEII, the Ogun Enterprise & Innovation Institute chapter, based at The Edfrica Hub",
     ],
     stat: { value: "15-country", label: "regional network" },
     href: "/institute",
@@ -156,7 +156,7 @@ export const pillars: Pillar[] = [
     navLabel: "Innovation Hub",
     tagline: "A physical home for innovation",
     description:
-      "A co-working, training, and event space in Sokenu, off Nawarudeen Road, Abeokuta South LGA — the operational base for OGEII and the wider Edfrica ecosystem.",
+      "A co-working, training, and event space in Sokenu, off Nawarudeen Road, Abeokuta South LGA. It is the operational base for OGEII and the wider Edfrica ecosystem.",
     bullets: [
       "Co-working floor, training rooms, event & multipurpose hall, incubation bay",
       "Home to OGEII, in-person TLab STEAM sessions, and independent members",
@@ -176,7 +176,7 @@ export const pillars: Pillar[] = [
     navLabel: "Social Enterprise",
     tagline: "CSR & inclusive innovation",
     description:
-      "Channels corporate social responsibility and impact investment into inclusive innovation programming across the Edfrica ecosystem.",
+      "Routes corporate social responsibility and impact investment into inclusive innovation programming across the Edfrica ecosystem.",
     bullets: [
       "Corporate CSR and impact-investment partnerships",
       "Inclusive innovation programming",
@@ -202,28 +202,28 @@ export const partnerAudiences: PartnerAudience[] = [
   },
   {
     title: "NGOs",
-    body: "Leverage an established network of 5,000+ members and 20,000+ MSMEs without building infrastructure from scratch.",
+    body: "Tap a network of 5,000+ members and 20,000+ MSMEs instead of building your own reach from scratch.",
     icon: "heart",
     photo: "/photos/community-outreach.jpg",
     photoAlt: "Edfrica volunteers and children at a community outreach event",
   },
   {
     title: "Corporates & foundations",
-    body: "Channel CSR and impact investment through a trusted, results-driven platform with measurable outcomes.",
+    body: "Put CSR and impact investment through a platform that reports what actually happened, not just what was spent.",
     icon: "briefcase",
     photo: "/photos/business-consulting.jpg",
     photoAlt: "An Edfrica consultant leading a business training session",
   },
   {
     title: "Government & public sector",
-    body: "Deploy entrepreneurship and STEAM mandates at scale through OGEII, with built-in monitoring.",
+    body: "Run entrepreneurship and STEAM mandates at scale through OGEII, with monitoring built in from the start.",
     icon: "landmark",
     photo: "/photos/edfrica-building.jpg",
     photoAlt: "The Edfrica building in Sokenu, Abeokuta",
   },
   {
     title: "Academic & research institutions",
-    body: "Co-create curricula and publish applied research through the Institute.",
+    body: "Build curricula with us and publish applied research through the Institute.",
     icon: "graduation",
     photo: "/photos/digital-platform.jpg",
     photoAlt: "Hands typing on a laptop displaying the Edfrica platform",
@@ -264,7 +264,7 @@ export const services: Service[] = [
     title: "Market assessments",
     descriptor: "Sector & market-entry studies",
     icon: "chart",
-    body: "Sector mapping, competitive landscape, and market-entry studies for organisations moving into a new country, segment, or product line — grounded in the on-the-ground reach of a 15-country regional network rather than desk research alone.",
+    body: "Sector mapping, competitor analysis, and market-entry studies for organisations moving into a new country, segment, or product line. The findings come from a 15-country network with people on the ground, not from desk research alone.",
     photo: "/photos/market-assessment.jpg",
     photoAlt: "An Edfrica officer surveying traders at a market in Abeokuta",
   },
@@ -274,7 +274,7 @@ export const services: Service[] = [
     title: "Financial analysis & modelling",
     descriptor: "Feasibility studies & forecasting",
     icon: "chart",
-    body: "Financial models, feasibility studies, and forecasting built to the standard funders and lenders expect — unit economics, scenario analysis, and the assumptions written down where a reviewer can check them.",
+    body: "Financial models, feasibility studies, and forecasting built to the standard funders and lenders expect. Unit economics, scenario analysis, and the assumptions written down where a reviewer can actually check them.",
     photo: "/photos/business-consulting.jpg",
     photoAlt: "Financial documents reviewed during a consulting session",
   },
@@ -294,7 +294,7 @@ export const services: Service[] = [
     title: "Access to finance",
     descriptor: "Grants, loans & blended finance",
     icon: "seal",
-    body: "Navigation across grants, loans, and blended-finance instruments — identifying the right facility, preparing the application, and managing the reporting that follows. Over ₦50M in financing facilitated to date.",
+    body: "We help you find the right grant, loan, or blended-finance facility, prepare the application, and manage the reporting that follows. Over ₦50M in financing facilitated to date.",
     photo: "/photos/access-to-finance.jpg",
     photoAlt:
       "An entrepreneur at an Edfrica financing session in front of the programme banner",
@@ -305,7 +305,7 @@ export const services: Service[] = [
     title: "Investment readiness",
     descriptor: "Due diligence & capital-raise prep",
     icon: "star",
-    body: "Getting a business to the point where it survives contact with an investor: data room, due-diligence pack, governance, and the capital-raise narrative — prepared before the first meeting rather than during it.",
+    body: "Getting a business to the point where it survives contact with an investor: data room, due-diligence pack, governance, and the capital-raise story. All of it ready before the first meeting, not during it.",
     photo: "/photos/digital-platform.jpg",
     photoAlt: "An investment readiness working session",
   },
@@ -315,7 +315,7 @@ export const services: Service[] = [
     title: "Cross-border market access",
     descriptor: "Trade facilitation across ECOWAS & Sahel",
     icon: "globe",
-    body: "Trade facilitation and market entry across all 15 ECOWAS and Alliance of Sahel States countries — regulatory navigation, partner identification, and local delivery through our regional network.",
+    body: "Trade and market entry across all 15 ECOWAS and Alliance of Sahel States countries. We handle the regulatory side, find you local partners, and deliver through our regional network.",
     photo: "/photos/cross-border-access.jpg",
     photoAlt:
       "An Edfrica-hosted virtual session with regional partners across the network",
@@ -326,7 +326,7 @@ export const services: Service[] = [
     title: "Acceleration & incubation",
     descriptor: "Ideation through to scale",
     icon: "landmark",
-    body: "Structured incubation and acceleration from ideation through to scale, run out of The Edfrica Hub in Abeokuta — cohort programming, technical mentorship, workspace, and market linkage in one place.",
+    body: "Structured incubation and acceleration from first idea through to scale, run out of The Edfrica Hub in Abeokuta. Cohort programming, technical mentorship, workspace, and market linkage in one place.",
     photo: "/photos/acceleration-incubation.jpg",
     photoAlt: "Founders working through an incubation session at The Edfrica Hub",
   },
@@ -367,7 +367,7 @@ export const trustSignals: TrustSignal[] = [
   {
     icon: "globe",
     title: "ISN member",
-    body: "Innovation Support Network — Nigeria's innovation hub network",
+    body: "Innovation Support Network, Nigeria's network of innovation hubs",
   },
 ];
 
@@ -450,10 +450,10 @@ export const insights: Insight[] = [
 ];
 
 export const whyPartner: string[] = [
-  "Faster mobilization — no cold-start delay after award",
-  "Lower delivery risk — safeguarding & M&E built in",
-  "Built-in visibility — reaches our existing media audience",
-  "Local plus international standard — GIZ, EU, World Bank-informed practice",
+  "Faster mobilization, with no cold-start delay after award",
+  "Lower delivery risk, with safeguarding and M&E built in",
+  "Built-in visibility through our existing media audience",
+  "Local reach at international standard, informed by GIZ, EU and World Bank practice",
 ];
 
 export type RegionalMember = {
@@ -492,7 +492,7 @@ export const tlabRanks: string[] = [
 
 /** Corporate profile PDF, page 06 — "Why EIIE exists". */
 export const whyEiieExists =
-  "Nigeria's entrepreneurship and innovation landscape is split between institutions with grassroots reach but no technical depth, and consultancies with technical depth but no last-mile presence. EIIE was built to be both at once — carrying a community network of 5,000+ members and 20,000+ MSMEs into the room, backed by delivery standards drawn from World Bank/ECOWAS, GIZ, and GOPA-managed programmes.";
+  "Nigeria's entrepreneurship and innovation sector splits in two: institutions with grassroots reach but no technical depth, and consultancies with technical depth but no last-mile presence. EIIE was built to be both. We bring a community network of 5,000+ members and 20,000+ MSMEs into the room, backed by delivery standards drawn from World Bank/ECOWAS, GIZ, and GOPA-managed programmes.";
 
 export const esoServices: string[] = [
   "Business development & MSME advisory",
@@ -539,6 +539,7 @@ export const executiveTeam: ExecutiveMember[] = [
     initials: "MO",
     name: "Mathew Oguntayo",
     role: "Director",
+    photo: "/team/mathew-oguntayo.jpg",
     social: {
       linkedin: "https://www.linkedin.com/in/mathewkunle/",
       instagram: "https://www.instagram.com/ogagunmathew/",

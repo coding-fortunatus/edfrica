@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/safeguarding-policy";
 const title = "Safeguarding & Child Protection Policy";
 const description =
-  "Edfrica's commitment to safeguarding, including child protection on TLab.";
+  "Edfrica's safeguarding and SEAH commitments, including child protection on the TLab STEAM platform and how to report a concern.";
 
 export const metadata = buildMetadata({ title, description, path });
 
@@ -20,7 +20,7 @@ const sections: LegalSection[] = [
     body: (
       <p>
         This policy sets out {orgName}&rsquo;s commitment to protecting the
-        wellbeing of everyone who takes part in our programmes — with
+        wellbeing of everyone who takes part in our programmes, with
         particular emphasis on children aged 3&ndash;15 who use TLab, our
         gamified STEAM platform. It applies to all staff, volunteers,
         consultants, and partners engaged in Edfrica-run activities.
@@ -81,8 +81,8 @@ const sections: LegalSection[] = [
     heading: "6. Reporting a concern",
     body: (
       <p>
-        Anyone — staff, parent, guardian, or participant — who has a
-        safeguarding concern should report it immediately to{" "}
+        Any staff member, parent, guardian, or participant with a safeguarding
+        concern should report it immediately to{" "}
         <a href={`mailto:${contact.email}`} className="text-ink hover:text-green-deep">
           {contact.email}
         </a>

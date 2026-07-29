@@ -3,7 +3,7 @@ import { defaultDescription, siteName } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Edfrica — Turning African Ambition Into Impact",
+    name: "Edfrica: Turning African Ambition Into Impact",
     short_name: siteName,
     description: defaultDescription,
     start_url: "/",

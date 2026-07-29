@@ -17,7 +17,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/services";
 const title = "Our Services";
 const description =
-  "Business development, market assessments, financial modelling, compliance, access to finance, investment readiness, cross-border market access, and acceleration — delivered end to end by the Edfrica Institute.";
+  "Business development, market assessments, financial modelling, compliance, access to finance and cross-border trade, from the Edfrica Institute.";
 
 export const metadata = buildMetadata({
   title,
@@ -55,7 +55,7 @@ export default function ServicesPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
             Entrepreneurship support (ESO) and innovation support (ISO) run
-            through the Edfrica Institute — carrying a community network of
+            through the Edfrica Institute, carrying a community network of
             5,000+ members and 20,000+ MSMEs, backed by delivery standards
             drawn from World Bank/ECOWAS, GIZ, and GOPA-managed programmes.
           </p>
@@ -66,7 +66,7 @@ export default function ServicesPage() {
                 href={`#${service.slug}`}
                 className="rounded-full border border-ink/15 px-4 py-2 font-mono text-xs tracking-wide text-ink/70 uppercase hover:border-green-deep hover:text-green-deep"
               >
-                {service.number} — {service.title}
+                {service.number} · {service.title}
               </Link>
             ))}
           </div>

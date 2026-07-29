@@ -1,6 +1,6 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Edfrica — Safeguarding & Child Protection";
+export const alt = "Edfrica: Safeguarding & Child Protection";
 export const size = ogSize;
 export const contentType = ogContentType;
 

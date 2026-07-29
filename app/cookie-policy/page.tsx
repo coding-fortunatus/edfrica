@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/cookie-policy";
 const title = "Cookie Policy";
 const description =
-  "How Edfrica uses cookies and similar technologies.";
+  "How Edfrica uses cookies and similar technologies across its websites, what each one does, and how you can control them from your browser.";
 
 export const metadata = buildMetadata({ title, description, path });
 

@@ -27,7 +27,7 @@ const extras: Record<string, React.ReactNode> = {
 const path = "/ecosystem";
 const title = "Our Five-Pillar Ecosystem";
 const description =
-  "A deep dive into Edfrica's five pillars — Media, Institute, Education (TLab), Infrastructure (The Hub), and Foundation — building youth entrepreneurship and STEAM innovation across Africa.";
+  "Edfrica's five pillars: Media, Institute, TLab education, The Hub, and Foundation, building youth entrepreneurship and STEAM innovation in Africa.";
 
 export const metadata = buildMetadata({
   title,
@@ -75,7 +75,7 @@ export default function EcosystemPage() {
                 href={`#${pillar.id}`}
                 className="rounded-full border border-ink/15 px-4 py-2 font-mono text-xs tracking-wide text-ink/70 uppercase hover:border-green-deep hover:text-green-deep"
               >
-                {pillar.number} — {pillar.role}
+                {pillar.number} · {pillar.role}
               </Link>
             ))}
           </div>

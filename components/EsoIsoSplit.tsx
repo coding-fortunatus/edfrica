@@ -6,7 +6,7 @@ export function EsoIsoSplit() {
     <div className="mt-2 grid gap-5 sm:grid-cols-2">
       <div className="rounded-2xl border border-green-deep/15 bg-mint p-6">
         <p className="font-mono text-xs tracking-wider text-green-deep uppercase">
-          ESO — Entrepreneurship support
+          ESO · Entrepreneurship support
         </p>
         <ul className="mt-4 flex flex-col gap-3">
           {esoServices.map((item) => (
@@ -22,7 +22,7 @@ export function EsoIsoSplit() {
       </div>
       <div className="rounded-2xl border border-white/10 bg-indigo p-6 text-white">
         <p className="font-mono text-xs tracking-wider text-green uppercase">
-          ISO — Innovation support
+          ISO · Innovation support
         </p>
         <ul className="mt-4 flex flex-col gap-3">
           {isoServices.map((item) => (

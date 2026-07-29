@@ -26,7 +26,7 @@ const heroPhotoAlt = "The Edfrica Institute team at the hub in Abeokuta";
 const path = "/institute";
 const title = "Edfrica Institute for Innovation & Enterprise";
 const description =
-  "Nigeria's entrepreneurship (ESO) and innovation (ISO) support institute, headquartered in Abeokuta with a regional network across all 15 ECOWAS and Alliance of Sahel States countries.";
+  "Nigeria's entrepreneurship (ESO) and innovation (ISO) support institute in Abeokuta, with a regional network across 15 ECOWAS and Sahel countries.";
 
 export const metadata = buildMetadata({
   title,
@@ -173,7 +173,7 @@ export default function InstitutePage() {
 
           <div className="mt-12 rounded-3xl border border-ink/10 bg-paper p-8">
             <h3 className="font-display text-xl font-bold text-ink">
-              OGEII — Ogun Enterprise &amp; Innovation Institute
+              OGEII: Ogun Enterprise &amp; Innovation Institute
             </h3>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink/70">
               Our Ogun State chapter, headquartered at The Edfrica Hub in

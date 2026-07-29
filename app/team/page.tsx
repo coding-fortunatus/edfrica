@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/team";
 const title = "Leadership & Team";
 const description =
-  "Meet the leadership and team driving Edfrica's five-pillar ecosystem for youth entrepreneurship and innovation across Africa — a 12-person team that is 50% women.";
+  "Meet the leadership and management team behind Edfrica's five-pillar ecosystem for youth entrepreneurship and innovation across Africa.";
 
 export const metadata = buildMetadata({
   title,

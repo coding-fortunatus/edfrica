@@ -18,15 +18,15 @@ const tones: Record<Tone, string> = {
 };
 
 const sizes = {
-  sm: "h-16 w-16",
-  md: "h-20 w-20",
-  lg: "h-28 w-28",
+  sm: "h-20 w-20",
+  md: "h-28 w-28",
+  lg: "h-36 w-36",
 };
 
 const monogramSizes = {
-  sm: "text-lg",
-  md: "text-xl",
-  lg: "text-3xl",
+  sm: "text-xl",
+  md: "text-3xl",
+  lg: "text-4xl",
 };
 
 /**
@@ -67,7 +67,7 @@ export function Avatar({
           src={photo}
           alt=""
           fill
-          sizes="112px"
+          sizes="144px"
           className="object-cover"
           shimmer={false}
         />

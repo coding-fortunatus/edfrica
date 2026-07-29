@@ -34,8 +34,10 @@ export function PartnerWith() {
                 Why organizations partner with Edfrica
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
-                From donors to government agencies, partners plug into an
-                established network instead of building from scratch.
+                Whether you fund programmes, run them, or need them delivered,
+                you start with a network that already exists: 5,000+ members,
+                20,000+ MSMEs, and a technical bench across 15 countries. No
+                cold start, no year one spent building reach.
               </p>
             </div>
 

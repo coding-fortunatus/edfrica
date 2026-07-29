@@ -1,6 +1,6 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "The Edfrica Hub — co-working, training and event space in Abeokuta";
+export const alt = "The Edfrica Hub: co-working, training and event space in Abeokuta";
 export const size = ogSize;
 export const contentType = ogContentType;
 

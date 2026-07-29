@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/partner";
 const title = "Partner With Us";
 const description =
-  "Why NGOs, donors, corporates, government agencies, and academic institutions partner with Edfrica to scale youth entrepreneurship and STEAM programs across Africa.";
+  "Why NGOs, corporates, government agencies and academic institutions partner with Edfrica to scale entrepreneurship and STEAM programmes in Africa.";
 
 export const metadata = buildMetadata({
   title,

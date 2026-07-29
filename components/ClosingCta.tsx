@@ -11,7 +11,7 @@ export function ClosingCta() {
         </h2>
         <p className="mt-4 text-base leading-relaxed text-white/70">
           Whether you&rsquo;re a donor, a corporate partner, or a government
-          agency — there&rsquo;s a place for you in the Edfrica ecosystem.
+          agency, there&rsquo;s a place for you in the Edfrica ecosystem.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button href="/partner" variant="primary">

@@ -37,10 +37,9 @@ export function Hero() {
             <em className="text-green italic">into impact.</em>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/75">
-            A five-pillar ecosystem — media, enterprise, education,
-            infrastructure, and social impact — equipping young Africans to
-            lead and build, across all 15 ECOWAS and Alliance of Sahel States
-            countries.
+            Five pillars: media, enterprise, education, infrastructure, and
+            social impact. Together they equip young Africans to lead and build
+            across all 15 ECOWAS and Alliance of Sahel States countries.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">

@@ -70,8 +70,8 @@ function SocialRow({ social }: { social: SocialLinks }) {
         return (
           <span
             key={key}
-            title={`${label} — coming soon`}
-            aria-label={`${label} — coming soon`}
+            title={`${label}: coming soon`}
+            aria-label={`${label}: coming soon`}
             className="flex h-8 w-8 cursor-default items-center justify-center rounded-full border border-ink/10 text-ink/20"
           >
             <Icon />
@@ -86,7 +86,7 @@ export function Leadership() {
   return (
     <section className="relative overflow-hidden bg-paper py-20">
       <Pattern variant="grid" tone="light" anchor="top" />
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <p className="font-mono text-xs tracking-[0.2em] text-green-deep uppercase">
           Leadership
         </p>
@@ -102,15 +102,17 @@ export function Leadership() {
           {executiveTeam.map((member, index) => (
             <div
               key={member.name}
-              className="rounded-3xl border border-ink/10 bg-parchment/50 p-8 text-center"
+              className="rounded-3xl border border-ink/10 bg-parchment/50 p-6 text-center"
             >
               <Avatar
                 name={member.name}
                 photo={member.photo}
                 tone={index % 2 === 0 ? "green" : "indigo"}
+                size="lg"
                 className="mx-auto"
               />
-              <p className="mt-5 font-display text-lg font-bold text-ink">
+              {/* Sized to keep every supplied name on one line at 4 columns. */}
+              <p className="mt-5 font-display text-base font-bold text-ink">
                 {member.name}
               </p>
               <p className="mt-1 text-sm text-ink/60">{member.role}</p>
@@ -132,7 +134,7 @@ export function Leadership() {
                 name={member.name}
                 photo={member.photo}
                 tone="parchment"
-                size="sm"
+                size="md"
                 className="mx-auto"
               />
               <p className="mt-4 text-sm font-bold text-ink">{member.name}</p>

@@ -20,8 +20,8 @@ export function WhatWeDo() {
           Our services
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
-          Entrepreneurship support (ESO) and innovation support (ISO) run
-          through the Edfrica Institute — from first strategy session to
+          Entrepreneurship support (ESO) and innovation support (ISO) both run
+          through the Edfrica Institute, from the first strategy session to
           investment readiness and cross-border market entry.
         </p>
 

@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/data-protection-policy";
 const title = "Data Protection Policy";
 const description =
-  "Edfrica's data protection commitments under Nigeria's Data Protection Act.";
+  "Edfrica's data protection commitments under the Nigeria Data Protection Act: lawful basis, retention, cross-border transfers and your rights.";
 
 export const metadata = buildMetadata({ title, description, path });
 
@@ -75,8 +75,8 @@ const sections: LegalSection[] = [
     heading: "5. Data protection impact assessments",
     body: (
       <p>
-        For higher-risk processing activities — including TLab&rsquo;s
-        processing of children&rsquo;s data — we conduct data protection
+        For higher-risk processing activities, including TLab&rsquo;s
+        processing of children&rsquo;s data, we conduct data protection
         impact assessments to identify and mitigate risks before launch and
         on an ongoing basis.
       </p>
@@ -113,8 +113,8 @@ const sections: LegalSection[] = [
     heading: "8. International transfers",
     body: (
       <p>
-        Where personal data is transferred outside Nigeria — for example, to
-        international donor or technical partners — we take reasonable steps
+        Where personal data is transferred outside Nigeria, for example to
+        international donor or technical partners, we take reasonable steps
         to ensure recipients provide an adequate level of protection
         consistent with NDPA requirements.
       </p>

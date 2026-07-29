@@ -25,7 +25,7 @@ export function LegalPageLayout({
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="rounded-2xl border border-green-deep/20 bg-mint px-5 py-4 text-sm leading-relaxed text-ink/80">
           <span className="font-bold text-green-deep">
-            Draft — pending legal review.
+            Draft, pending legal review.
           </span>{" "}
           This page reflects standard industry practice and will be finalized
           by Edfrica&rsquo;s legal team before formal publication.

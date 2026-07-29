@@ -16,8 +16,8 @@ export function ContactDetails() {
               Let&rsquo;s talk
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
-              Reach out about partnerships, programmes, or press — we&rsquo;ll
-              route your message to the right team.
+              Reach out about partnerships, programmes, or press and
+              we&rsquo;ll route your message to the right team.
             </p>
 
             <dl className="mt-10 flex flex-col gap-6">
@@ -80,7 +80,7 @@ export function ContactDetails() {
               />
             </div>
             <p className="mt-3 text-sm text-ink/50">
-              The Edfrica Hub — Sokenu, Abeokuta
+              The Edfrica Hub, Sokenu, Abeokuta
             </p>
           </div>
         </div>

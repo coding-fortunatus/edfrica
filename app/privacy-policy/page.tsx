@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/privacy-policy";
 const title = "Privacy Policy";
 const description =
-  "How Edfrica Solutions Limited collects, uses, and protects personal data.";
+  "How Edfrica Solutions Limited collects, uses, stores and protects personal data across its websites, platforms and programmes in Nigeria.";
 
 export const metadata = buildMetadata({ title, description, path });
 
@@ -67,7 +67,7 @@ const sections: LegalSection[] = [
               Children&rsquo;s data (TLab):
             </span>{" "}
             limited account and progress data for learners aged 3&ndash;15,
-            collected under parental/guardian consent — see Section 5.
+            collected under parental/guardian consent. See Section 5.
           </li>
         </ul>
       </>

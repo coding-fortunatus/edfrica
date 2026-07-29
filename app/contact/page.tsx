@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 const path = "/contact";
 const title = "Contact Us";
 const description =
-  "Get in touch with Edfrica Solutions Limited — offices in Sokenu, Abeokuta South LGA, Ogun State, Nigeria. Email contact@edfrica.org or call +234 808 485 2235.";
+  "Get in touch with Edfrica Solutions Limited in Sokenu, Abeokuta South LGA, Ogun State. Email contact@edfrica.org or call +234 808 485 2235.";
 
 export const metadata = buildMetadata({
   title,

@@ -8,6 +8,6 @@ export default function Image() {
   return renderOgImage({
     eyebrow: "Contact",
     title: "Talk to the Edfrica team",
-    subtitle: "Abeokuta, Ogun State, Nigeria — contact@edfrica.org",
+    subtitle: "Abeokuta, Ogun State, Nigeria · contact@edfrica.org",
   });
 }

@@ -9,6 +9,6 @@ export default function Image() {
     eyebrow: "Our ecosystem",
     title: "Five pillars, one system",
     subtitle:
-      "Media, Institute, Education (TLab), Infrastructure (The Hub) and Foundation — each feeding the next.",
+      "Media, Institute, Education (TLab), Infrastructure (The Hub) and Foundation, each feeding the next.",
   });
 }

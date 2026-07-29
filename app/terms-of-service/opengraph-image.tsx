@@ -1,6 +1,6 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = "Edfrica — Terms of Service";
+export const alt = "Edfrica: Terms of Service";
 export const size = ogSize;
 export const contentType = ogContentType;
 

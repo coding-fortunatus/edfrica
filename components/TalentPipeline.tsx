@@ -33,14 +33,14 @@ export function TalentPipeline() {
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70">
               The pipeline starts young. TLab is a safe, gamified STEAM
-              learning ecosystem for children aged 3 to 15 — fully COPPA and
-              GDPR-K compliant — where learners earn XP and progress through
-              five ranks.
+              learning platform for children aged 3 to 15, fully COPPA and
+              GDPR-K compliant, where learners earn XP and climb through five
+              ranks.
             </p>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-white/70">
-              It feeds into the Institute&rsquo;s emerging-tech training in AI,
-              IoT, cloud and data, and onward into a technical bench that
-              delivers for MSMEs across the region.
+              From there they move into the Institute&rsquo;s emerging-tech
+              training in AI, IoT, cloud and data, and on into the technical
+              bench that delivers for MSMEs across the region.
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-2">

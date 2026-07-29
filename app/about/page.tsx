@@ -7,9 +7,9 @@ import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 
 const path = "/about";
-const title = "About Us — Our Story & Mission";
+const title = "About Us: Our Story & Mission";
 const description =
-  "Edfrica's mission and story — a five-pillar social enterprise turning African ambition into impact since 2017, from Abeokuta across all 15 ECOWAS and Alliance of Sahel States countries.";
+  "Edfrica's mission and story: a five-pillar social enterprise turning African ambition into impact, from Abeokuta outward since 2017.";
 
 export const metadata = buildMetadata({
   title,
