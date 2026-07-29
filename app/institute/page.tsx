@@ -24,7 +24,7 @@ const heroPhoto = "/photos/staff-team.jpg";
 const heroPhotoAlt = "The Edfrica Institute team at the hub in Abeokuta";
 
 const path = "/institute";
-const title = "Edfrica Institute for Innovation & Enterprise";
+const title = "Institute for Innovation & Enterprise";
 const description =
   "Nigeria's entrepreneurship (ESO) and innovation (ISO) support institute in Abeokuta, with a regional network across 15 ECOWAS and Sahel countries.";
 

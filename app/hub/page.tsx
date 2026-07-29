@@ -19,7 +19,7 @@ import { buildMetadata } from "@/lib/seo";
 const hub = pillars.find((pillar) => pillar.id === "infrastructure")!;
 
 const path = "/hub";
-const title = "The Edfrica Hub";
+const title = "The Hub";
 const description =
   "Co-working desks, training rooms, an event hall and an incubation bay in Sokenu, Abeokuta. Home to OGEII and the wider Edfrica ecosystem.";
 

@@ -11,7 +11,7 @@ export const siteUrl = (
 
 export const siteName = "Edfrica";
 
-export const defaultTitle = "Edfrica: Turning African Ambition Into Impact";
+export const defaultTitle = "Edfrica | Turning African Ambition Into Impact";
 
 export const defaultDescription =
   "Edfrica is a five-pillar social enterprise equipping young Africans to lead and build, across all 15 ECOWAS and Alliance of Sahel States countries.";

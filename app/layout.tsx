@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: defaultTitle,
-    template: "%s · Edfrica",
+    template: "Edfrica | %s",
   },
   description: defaultDescription,
   applicationName: siteName,
