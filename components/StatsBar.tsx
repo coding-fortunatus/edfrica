@@ -5,6 +5,8 @@ import { stats as defaultStats, type Stat } from "@/lib/content";
 import { useInView } from "@/lib/useInView";
 
 type Tone = "light" | "dark";
+/** `classical` is the About page's treatment: larger numerals, ruled columns. */
+type Variant = "default" | "classical";
 
 function parseValue(value: string) {
   const match = value.match(/^(\D*)([\d,]+)(.*)$/);
@@ -28,7 +30,8 @@ function StatItem({
   label,
   tone = "light",
   align = "start",
-}: Stat & { tone?: Tone; align?: "start" | "center" }) {
+  variant = "default",
+}: Stat & { tone?: Tone; align?: "start" | "center"; variant?: Variant }) {
   const { ref, inView } = useInView<HTMLDivElement>();
   const parsed = useMemo(() => parseValue(value), [value]);
   const [display, setDisplay] = useState(0);
@@ -56,6 +59,8 @@ function StatItem({
     ? `${parsed.prefix}${display.toLocaleString()}${parsed.suffix}`
     : value;
 
+  const isClassical = variant === "classical";
+
   return (
     <div
       ref={ref}
@@ -66,11 +71,21 @@ function StatItem({
       }`}
     >
       <span
-        className={`font-mono text-3xl font-normal sm:text-4xl ${numberTone[tone]}`}
+        className={`font-mono font-normal ${
+          isClassical ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"
+        } ${numberTone[tone]}`}
       >
         {text}
       </span>
-      <span className={`text-sm ${labelTone[tone]}`}>{label}</span>
+      <span
+        className={
+          isClassical
+            ? `mt-1 font-mono text-[0.7rem] tracking-[0.16em] uppercase ${labelTone[tone]}`
+            : `text-sm ${labelTone[tone]}`
+        }
+      >
+        {label}
+      </span>
     </div>
   );
 }
@@ -79,6 +94,7 @@ type StatsRowProps = {
   stats?: Stat[];
   tone?: Tone;
   align?: "start" | "center";
+  variant?: Variant;
   className?: string;
 };
 
@@ -87,6 +103,7 @@ export function StatsRow({
   stats = defaultStats,
   tone = "light",
   align = "start",
+  variant = "default",
   className = "",
 }: StatsRowProps) {
   return (
@@ -96,20 +113,31 @@ export function StatsRow({
       } ${className}`}
     >
       {stats.map((stat) => (
-        <StatItem key={stat.label} {...stat} tone={tone} align={align} />
+        <StatItem
+          key={stat.label}
+          {...stat}
+          tone={tone}
+          align={align}
+          variant={variant}
+        />
       ))}
     </div>
   );
 }
 
-/** Standalone parchment stat band, used on interior pages. */
+/**
+ * Standalone stat band. Only the About page renders it, so it carries that
+ * page's classical treatment directly: larger numerals in columns divided by
+ * rules, on paper rather than a tinted band.
+ */
 export function StatsBar() {
   return (
-    <section
-      aria-label="Impact statistics"
-      className="border-b border-ink/10 bg-parchment/60"
-    >
-      <StatsRow className="mx-auto max-w-7xl px-6 py-10 lg:px-8" />
+    <section aria-label="Impact statistics" className="bg-paper px-6 lg:px-8">
+      <StatsRow
+        align="center"
+        variant="classical"
+        className="mx-auto max-w-5xl border-y border-ink/12 py-12 sm:divide-x sm:divide-ink/12"
+      />
     </section>
   );
 }

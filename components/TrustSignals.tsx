@@ -1,8 +1,56 @@
 import { trustSignals } from "@/lib/content";
 import { getIcon } from "@/components/iconRegistry";
 import { Pattern } from "@/components/Pattern";
+import { SectionMark } from "@/components/about/SectionMark";
 
-export function TrustSignals() {
+/**
+ * The About page's treatment: no icon medallions, no pattern, credentials as
+ * ruled label/value rows. The homepage keeps the default.
+ */
+function ClassicalTrustSignals() {
+  return (
+    <section
+      id="trust"
+      className="scroll-mt-24 bg-parchment/50 px-6 py-20 lg:px-8"
+    >
+      <div className="mx-auto max-w-5xl">
+        <SectionMark>Credentials</SectionMark>
+        <h2 className="mt-4 max-w-2xl font-display text-3xl leading-[1.2] font-normal text-ink sm:text-4xl">
+          De-risking your partnership
+        </h2>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/70">
+          Impact delivers the greatest value when it&rsquo;s built on a
+          foundation of trust, compliance, and operational discipline. Our
+          credentials let partners move faster with reduced risk.
+        </p>
+
+        <dl className="mt-12 border-t border-ink/12">
+          {trustSignals.map((signal) => (
+            <div
+              key={signal.title}
+              className="grid gap-1 border-b border-ink/12 py-6 sm:grid-cols-[18rem_1fr] sm:gap-10"
+            >
+              <dt className="font-display text-lg font-bold text-ink">
+                {signal.title}
+              </dt>
+              <dd className="max-w-xl text-base leading-relaxed text-ink/65">
+                {signal.body}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
+export function TrustSignals({
+  variant = "default",
+}: {
+  variant?: "default" | "classical";
+}) {
+  if (variant === "classical") return <ClassicalTrustSignals />;
+
   return (
     <section
       id="trust"

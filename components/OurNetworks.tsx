@@ -1,8 +1,53 @@
 import { networks } from "@/lib/content";
 import { Pattern } from "@/components/Pattern";
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
+import { SectionMark } from "@/components/about/SectionMark";
 
-export function OurNetworks() {
+/**
+ * The About page's treatment: the marks sit in one ruled row with no card
+ * around them. The white plates stay — the AEIP and AfriLabs artwork is
+ * transparent with dark navy ink and disappears on the dark theme without one.
+ */
+function ClassicalOurNetworks() {
+  return (
+    <section id="networks" className="scroll-mt-24 bg-paper px-6 py-20 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <SectionMark>Our networks</SectionMark>
+        <h2 className="mt-4 max-w-2xl font-display text-3xl leading-[1.2] font-normal text-ink sm:text-4xl">
+          We don&rsquo;t work alone
+        </h2>
+
+        <ul className="mt-12 grid gap-8 border-t border-ink/12 pt-10 sm:grid-cols-3 sm:gap-10">
+          {networks.map((network) => (
+            <li key={network.name} className="text-center">
+              <div className="flex h-24 items-center justify-center border border-ink/12 bg-white px-8">
+                <ImageWithSkeleton
+                  src={network.logo}
+                  alt={`${network.fullName} logo`}
+                  width={network.width}
+                  height={network.height}
+                  className="h-11 w-auto"
+                  shimmer={false}
+                />
+              </div>
+              <p className="mt-4 font-mono text-[0.7rem] tracking-[0.16em] text-ink/55 uppercase">
+                {network.fullName}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+export function OurNetworks({
+  variant = "default",
+}: {
+  variant?: "default" | "classical";
+}) {
+  if (variant === "classical") return <ClassicalOurNetworks />;
+
   return (
     <section
       id="networks"

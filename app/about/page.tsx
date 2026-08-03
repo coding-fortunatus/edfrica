@@ -1,5 +1,7 @@
-import { WhoWeAre } from "@/components/WhoWeAre";
-import { OurStory } from "@/components/OurStory";
+import { AboutTitlePage } from "@/components/about/AboutTitlePage";
+import { Plate } from "@/components/about/Plate";
+import { MissionVision } from "@/components/about/MissionVision";
+import { Chronicle } from "@/components/about/Chronicle";
 import { StatsBar } from "@/components/StatsBar";
 import { TrustSignals } from "@/components/TrustSignals";
 import { OurNetworks } from "@/components/OurNetworks";
@@ -36,15 +38,25 @@ export default function AboutPage() {
           breadcrumbNode(crumbs),
         ])}
       />
+      <AboutTitlePage />
+      <Plate
+        src="/photos/edfrica-building.jpg"
+        alt="The Edfrica building in Sokenu, Abeokuta"
+        caption="The Edfrica Hub &mdash; Sokenu, off Nawarudeen Road, Abeokuta South."
+        priority
+      />
       {/* Anchor targets for the Company menu in the navbar. */}
-      <div id="mission-vision" className="scroll-mt-24">
-        <WhoWeAre />
-      </div>
-      <OurStory />
+      <MissionVision />
+      <Chronicle />
+      <Plate
+        src="/photos/business-consulting.jpg"
+        alt="An Edfrica consultant leading a business training session"
+        caption="A business advisory session at the Hub."
+      />
       <div id="impact" className="scroll-mt-24">
         <StatsBar />
-        <TrustSignals />
-        <OurNetworks />
+        <TrustSignals variant="classical" />
+        <OurNetworks variant="classical" />
       </div>
     </>
   );
