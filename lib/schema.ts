@@ -3,6 +3,7 @@ import {
   executiveTeam,
   hubFacilities,
   missionVision,
+  networks,
   orgName,
   orgSocials,
   pillars,
@@ -94,6 +95,11 @@ export function organizationNode(): JsonLdNode {
       },
     ],
     ...(sameAs.length ? { sameAs } : {}),
+    memberOf: networks.map((network) => ({
+      "@type": "Organization",
+      name: network.fullName,
+      ...(network.href ? { url: network.href } : {}),
+    })),
     subOrganization: pillars.map((pillar) => ({
       "@type": "Organization",
       name: pillar.name,

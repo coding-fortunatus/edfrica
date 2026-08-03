@@ -104,7 +104,8 @@ export const pillars: Pillar[] = [
     external: true,
     tone: "green",
     photo: "/photos/media-platform.jpg",
-    photoAlt: "An Edfrica media team member working on the platform",
+    photoAlt:
+      "The Edfrica Media platform open on a laptop, showing curated funding and scholarship listings",
   },
   {
     id: "institute",
@@ -364,10 +365,50 @@ export const trustSignals: TrustSignal[] = [
     title: "Monitoring & Evaluation",
     body: "Logic frameworks built into every programme design",
   },
+];
+
+export type Network = {
+  name: string;
+  /** Expanded name, used as the tile caption and inside the image alt. */
+  fullName: string;
+  logo: string;
+  /** Intrinsic dimensions of the supplied artwork, passed to next/image. */
+  width: number;
+  height: number;
+  href?: string;
+};
+
+/**
+ * Networks Edfrica belongs to. ISN membership used to sit in `trustSignals`;
+ * it lives here now so the credential is stated once, with its mark.
+ *
+ * The AEIP artwork reads "Africa · Europe Innovation Platform", so that is the
+ * name used here rather than the "AU-EU" phrasing of the review note.
+ *
+ * TODO: add each network's official `href` once the URLs are confirmed — the
+ * tiles render unlinked rather than pointing at a guessed domain.
+ */
+export const networks: Network[] = [
   {
-    icon: "globe",
-    title: "ISN member",
-    body: "Innovation Support Network, Nigeria's network of innovation hubs",
+    name: "ISN Hubs",
+    fullName: "Innovation Support Network",
+    logo: "/logos/isn-hubs.webp",
+    width: 256,
+    height: 110,
+  },
+  {
+    name: "AEIP",
+    fullName: "Africa–Europe Innovation Platform",
+    logo: "/logos/africa-europe-innovation-platform.webp",
+    width: 492,
+    height: 192,
+  },
+  {
+    name: "AfriLabs",
+    fullName: "AfriLabs",
+    logo: "/logos/afrilabs.webp",
+    width: 856,
+    height: 300,
   },
 ];
 
@@ -555,7 +596,13 @@ export const executiveTeam: ExecutiveMember[] = [
       instagram: "https://www.instagram.com/peterrichfield/",
     },
   },
-  { initials: "OO", name: "Omolara Olaiya", role: "Legal Advisor", social: {} },
+  {
+    initials: "OO",
+    name: "Omolara Olaiya",
+    role: "Legal Advisor",
+    photo: "/team/omolara-olaiya.jpg",
+    social: { linkedin: "https://www.linkedin.com/in/olaiyaifeoluwaomolara" },
+  },
 ];
 
 export type TeamMember = {

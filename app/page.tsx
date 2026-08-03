@@ -3,6 +3,7 @@ import { Ecosystem } from "@/components/Ecosystem";
 import { WhoWeServe } from "@/components/WhoWeServe";
 import { WhatWeDo } from "@/components/WhatWeDo";
 import { TrustSignals } from "@/components/TrustSignals";
+import { OurNetworks } from "@/components/OurNetworks";
 import { TalentPipeline } from "@/components/TalentPipeline";
 import { ClosingCta } from "@/components/ClosingCta";
 import { JsonLd } from "@/components/JsonLd";
@@ -31,6 +32,7 @@ export default function Home() {
       <WhoWeServe />
       <WhatWeDo />
       <TrustSignals />
+      <OurNetworks />
       <TalentPipeline />
       {/* <Insights /> */}
       <ClosingCta />

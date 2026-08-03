@@ -2,6 +2,7 @@ import { WhoWeAre } from "@/components/WhoWeAre";
 import { OurStory } from "@/components/OurStory";
 import { StatsBar } from "@/components/StatsBar";
 import { TrustSignals } from "@/components/TrustSignals";
+import { OurNetworks } from "@/components/OurNetworks";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -43,6 +44,7 @@ export default function AboutPage() {
       <div id="impact" className="scroll-mt-24">
         <StatsBar />
         <TrustSignals />
+        <OurNetworks />
       </div>
     </>
   );

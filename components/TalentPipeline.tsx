@@ -7,7 +7,9 @@ import { tlabRanks, type Stat } from "@/lib/content";
 const talentStats: Stat[] = [
   { value: "200+", label: "Technical consultants" },
   { value: "20,000+", label: "MSMEs supported" },
-  { value: "15-country", label: "Regional network" },
+  // Split into a bare number so it count-animates and never wraps mid-word
+  // alongside "200+" and "20,000+" at 4xl.
+  { value: "15", label: "Countries in our network" },
 ];
 
 export function TalentPipeline() {

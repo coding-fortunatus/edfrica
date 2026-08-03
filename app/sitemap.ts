@@ -6,7 +6,7 @@ import { siteUrl } from "@/lib/seo";
  * would tell crawlers every page changed on every deploy, which trains them
  * to ignore `lastModified` altogether.
  */
-const lastContentUpdate = new Date("2026-07-27");
+const lastContentUpdate = new Date("2026-08-03");
 
 type Route = {
   path: string;
